@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async
+	src="https://www.googletagmanager.com/gtag/js?id=G-GNJJMF8KL8"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GNJJMF8KL8');
+    </script>
+<meta charset="utf-8">
+<title>Sidebar Dashboard Template</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+<link rel="stylesheet" th:href="@{/css/style2.css}">
+<link rel="stylesheet" th:href="@{/js/jquery-ui.min.css}">
+
+
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+</head>
+
+<body>
+
+	<input type="checkbox" id="check">
+
+	<!--header area start-->
+
+	<nav class="navbar navbar-expand-lg navbar-dark sticky-top"
+		style="background-color: #07a46f;">
+		<div class="container-fluid d-flex align-items-center">
+
+			<img th:src="@{/img/logo.png}" alt="" width="60" height="60"> <a
+				class="navbar-brand d-flex align-items-center"
+				style="margin-left: 20px;" href="#"> Nutrisan </a>
+
+
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse d-flex align-items-center"
+				id="navbarNavDropdown">
+				<ul class="navbar-nav ms-auto flex-nowrap"
+					style="margin-right: 400px;">
+					<li class="nav-item" style="margin-left: 30px;"><a
+						class="nav-link active" aria-current="page" th:href="@{/inicio}">Home</a></li>
+					<li class="nav-item" style="margin-left: 30px;"><a
+						class="nav-link" href="#">News</a></li>
+
+
+
+
+					<li class="nav-item dropdown" style="margin-left: 30px;"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> Help </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="#">Report a problem</a></li>
+							<li><a class="dropdown-item" href="#">FAQ</a></li>
+						</ul></li>
+
+
+
+				</ul>
+				<label for="check"> <i class="fas fa-user-circle fa-2x"
+					id="sidebar_btn"></i>
+				</label>
+			</div>
+		</div>
+	</nav>
+
+	<!--header area end-->
+	<!--sidebar start-->
+
+	<div class="sidebar">
+		<center>
+			<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
+			<h4>TakemichiGOD</h4>
+		</center>
+
+
+		<a th:href="@{'/inicio' + '/myaccount'}"><i class="fas fa-desktop"></i><span>My
+				account</span></a> <a href="#"><i class="fas fa-cogs"></i><span>Book
+				an appointment</span></a> <a href="#"><i class="fas fa-table"></i><span>My
+				appointments</span></a> <a href="#"><i class="fas fa-th"></i><span>Choose
+				a plan</span></a> <a href="#"><i class="fas fa-th"></i><span>Change
+				account</span></a> <a href="#"><i class="fas fa-sliders-h"></i><span>Log
+				out</span></a>
+	</div>
+
+
+	<div class="content">
+		<div class="container">
+			<div class="card-deck mb-3 text-center">
+				<div th:each="plan: ${plans}" class="card mb-4 shadow-sm">
+					<div class="card-header">
+						<h4 th:text="${plan.nombre}" class="my-0 font-weight-normal"></h4>
+					</div>
+					<div class="card-body">
+						<img src="/img/logo.png" class="logo_plan" alt="">
+
+						<h1 th:text="${plan.monto}" class="card-title pricing-card-title"></h1>
+						<small class="text-muted">/ per month</small>
+						<ul class="list-unstyled mt-3 mb-4">
+							<li th:text="${plan.caracteristicas}"></li>
+
+
+						</ul>
+
+						<button type="button" class="btn btn-warning" data-toggle="modal"
+							data-target="#exampleModal" th:data-id="${plan.id}"
+							th:data-price="${plan.monto}" th:data-name="${plan.nombre}">Choose a plan</button>
+					</div>
+				</div>
+
+
+
+			</div>
+
+		</div>
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+									<label for="recipient-name" class="col-form-label" id="planelegido"></label></br>
+									<label for="recipient-name" class="col-form-label" id="pagar"></label> </br>
+									
+									
+									
+									
+									<label> <input class="bt" type="radio" name="test" value="medium"><img src="/img/p1.jpg"></label>
+									<label> <input class="bt" type="radio" name="test" value="small" checked><img src="/img/p2.png"></label>
+									<label> <input class="bt" type="radio" name="test" value="big"><img src="/img/p3.png"></label>
+									
+									
+									
+									
+									
+									<input	type="text" class="form-control" placeholder="Número de Tarjeta" id="numTarjeta"> 
+									<input type="text" class="form-control" placeholder="Mes"id="mesTarjeta"> 
+									<input type="text" class="form-control" placeholder="Año" id="anioTarjeta">
+									<input type="text" class="form-control" placeholder="CVC" id="cvcTarjeta">
+
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Send
+							message</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/jquery-ui.min.js}"></script>
+	<script th:src="@{/js/code.js}"></script>
+</body>
+
+</html>

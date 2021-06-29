@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="https://www.thymeleaf.org/">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async
+	src="https://www.googletagmanager.com/gtag/js?id=G-GNJJMF8KL8"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GNJJMF8KL8');
+    </script>
+<meta charset="utf-8">
+<title>Sidebar Dashboard Template</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+	crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link th:href="@{/css/StylePacientAppointmentDetail.css}"rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+	crossorigin="anonymous"></script>
+</head>
+
+<body>
+	
+	<input type="checkbox" id="check">
+
+		<!--header area start-->
+
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top"
+			style="background-color: #07a46f;" >
+			<div class="container-fluid d-flex align-items-center">
+
+				   <img
+					th:src="@{/img/logo.png}" alt="" width="60" height="60"> <a
+					class="navbar-brand d-flex align-items-center"
+					style="margin-left: 20px;" href="#"> Nutrisan </a>
+
+
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+					aria-controls="navbarNavDropdown" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse d-flex align-items-center"
+					id="navbarNavDropdown">
+					<ul class="navbar-nav ms-auto flex-nowrap"
+						style="margin-right: 400px;">
+						<li class="nav-item" style="margin-left: 30px;"><a
+							class="nav-link active" aria-current="page" th:href="@{/inicio}">Home</a></li>
+						<li class="nav-item" style="margin-left: 30px;"><a
+							class="nav-link" href="#">News</a></li>
+
+										
+						<li class="nav-item dropdown" style="margin-left: 30px;"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"> Help </a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="#">Report a problem</a></li>
+								<li><a class="dropdown-item" href="#">FAQ</a></li>
+							</ul></li>
+						
+							
+					
+					</ul>
+					<label for="check"> 
+								<i class="fas fa-user-circle fa-2x" id="sidebar_btn"></i>
+					</label>
+				</div>
+			</div>
+		</nav>
+	
+		<br>
+		<br>
+		<br>
+	
+		<!--header area end-->
+		<!--sidebar start-->
+
+		<div class="sidebar">
+			<center>
+				<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
+				<h4>TakemichiGOD</h4>
+			</center>
+
+
+			<a th:href="@{'/inicio' + '/myaccount'}"><i class="fas fa-desktop"></i><span>My account</span></a>
+			<a href="#"><i class="fas fa-cogs"></i><span>Book an appointment</span></a>
+			<a th:href="@{'/inicio' + '/myappointments'}"><i class="fas fa-table"></i><span>My appointments</span></a>
+			<a href="#"><i class="fas fa-th"></i><span>Choose a plan</span></a>  
+			<a href="#"><i class="fas fa-th"></i><span>Change account</span></a>  
+			<a href="#"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
+		</div>
+		
+
+	
+
+		<div class="content">
+			
+			<div th:text="'Appointment '+${citas.cita_id}" class="Title"></div>
+			<div class="Title-info">
+				<div th:text="${citas.asunto}" class="Title-info-asunto"></div>
+				<a href="url" th:text="${citas.link}" class="Title-info-link"></a>
+				
+			</div>
+			<p>-------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+			<div class="Nutricionist">
+				<div class="NutricionistDetail">
+					<div class="NutricionistTitle"> Nutricionist: </div>
+					<div class="NutricionistInfo">		
+						<ul>
+								<li th:text="'DNI: '+${citas.horario.nutricionista.dni}"></li>
+								<li th:text="'Name: '+${citas.horario.nutricionista.nombre}+' '+${citas.horario.nutricionista.apellido}"></li>
+								<li th:text="'Apointment date: '+${citas.fecha}"></li>
+						</ul>	
+					</div>
+				</div>
+				<div class="NutricionistCalification">
+				
+				<img th:src="@{/img/nutricionista.jpg}" class="profile_image" alt="">
+				
+				<div th:text="'Score: '+${citas.horario.nutricionista.puntuacion}"></div>
+				
+				<form th:action="@{/inicio/save}" th:object="${nutricionistaNew}" method="post">
+				  <p class="clasificacion">
+				    <input type="text" name="estrellas" th:field="*{puntuacion}">
+				    <label for="puntuacion"></label>
+
+				  </p>
+				  <button type="submit" class="btn btn-primary" id="buttonscore">Submit</button>
+				
+				</form>
+				
+				
+				</div>
+				
+			</div>
+			
+			<p>-------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+			
+			
+			<div class="RecommendationTitle">Recommendations: </div>
+			<div class="RecommendationInfo" th:text="${citas.recomendacion}"></div>
+			
+			<p>-------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+			
+			<div class="AttachedFilesTitle">Attached files:</div>
+			
+			<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+			  <div class="carousel-indicators">
+			    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			  </div>
+			  <div class="carousel-inner">
+			    <div class="carousel-item active" data-bs-interval="10000">
+			      <img th:src="@{/img/multifrutas.jpg}" class="d-block w-100" alt="...">
+			      <div class="carousel-caption d-none d-md-block">
+			        <h5>First recommendation</h5>			      
+			      </div>
+			    </div>
+			    <div class="carousel-item" data-bs-interval="2000">
+			      <img th:src="@{/img/ejercicio.jpg}" class="d-block w-100" alt="...">
+			      <div class="carousel-caption d-none d-md-block">
+			        <h5>Second recommendation</h5>			      
+			      </div>
+			    </div>
+			    <div class="carousel-item">
+			      <img th:src="@{/img/dormir.jpg}" class="d-block w-100" alt="...">
+			      <div class="carousel-caption d-none d-md-block">
+			        <h5>Third recommendation</h5>
+			      </div>
+			    </div>
+			  </div>
+			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Previous</span>
+			  </button>
+			  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Next</span>
+			  </button>
+			</div>
+			<br>
+			
+		</div>
+	
+</body>
+
+</html>

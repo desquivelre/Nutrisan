@@ -1,0 +1,159 @@
+@charset "ISO-8859-1";
+
+.content{
+  margin-right: 250px;
+  background: url("") no-repeat;
+  background-color:whitesmoke;
+  background-position: center;
+  background-size: cover;
+  height:100%;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile_image{
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  margin-bottom: 10px;
+}
+
+
+.Title{
+	color: #07A46F;
+	margin: 40px;
+	padding-top: 10px;
+	font-weight: bold;
+	font-size: 25px;
+	
+}
+
+.Title-info{
+	
+	margin: 40px;
+	margin-top: 0px;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	color: #707070;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.Title-info-link{
+	
+	margin-left: 550px;
+	font-weight: normal;
+	font-size: 15px;
+	
+	color: #707070;
+	text-decoration: none;
+}
+
+.Nutricionist{
+	
+	display: flex;
+	flex-direction: row;
+}
+
+.NutricionistDetail{
+	margin-right: 350px;
+}
+.NutricionistTitle{
+	
+	margin-left: 40px;
+	font-weight: bold;
+}
+
+.NutricionistInfo{
+	
+	padding: 40px;
+	display: flex;
+}
+
+
+.RecommendationTitle{
+	margin: 40px;
+	margin-top: 5px;
+	font-weight: bold;
+	
+}
+
+.RecommendationInfo{
+	margin-left: 40px;
+	margin-bottom: 20px;
+}
+
+.AttachedFilesTitle{
+	margin: 40px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+#carouselExampleDark{
+	
+	margin-left: 200px;
+	margin-right: 200px;
+	margin-bottom: 100px;
+
+}
+
+p{
+	color: black;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+
+#form p {
+  text-align: center;
+}
+
+#form label {
+  font-size: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: yellow;
+}
+
+input[type="radio"]:checked ~ label {
+  color: yellow;
+}
+
+.NutricionistCalification{
+	
+	display: flex;
+	flex-direction: column;
+	
+}
+
+#buttonscore{
+	padding:10px;
+	margin-left: 70px;
+	
+}
+
+
+

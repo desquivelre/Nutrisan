@@ -1,0 +1,414 @@
+@charset "ISO-8859-1";
+
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe Ui", sans-serif;
+}
+
+header{
+  position: sticky;
+  top: 0px;
+  background: #07A46F;
+  padding: 20px;
+  width: 100%;
+  height: 30px;
+}
+
+.left_area h3{
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 900;
+  width: auto;
+}
+#Nutrisan{
+	position: relative;
+	left: 10px;
+	
+}
+#Avout_us{
+	position: relative;
+	right: 0px;
+}
+
+.left_area span{
+  color: #19B3D3;
+}
+
+.logo{
+	width: 20px;
+	height: 20px;
+	margin: 0px;
+}
+.logout_btn{
+  padding: 1px;
+  background: #19B3D3;
+  text-decoration: none;
+  float: right;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 40px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.logout_btn:hover{
+  background: #0B87A6;
+}
+
+.sidebar {
+  background: #707070;
+  margin-top: 0px;
+  padding-top: 30px;
+  position: fixed;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  transition: 0.5s;
+  transition-property: right;
+}
+
+.sidebar .profile_image{
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.sidebar h4{
+  color: #ccc;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+
+
+.sidebar a{
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  text-decoration: none;
+  padding-left: 30px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.sidebar a:hover{
+  background: #19B3D3;
+}
+
+.sidebar i{
+  padding-right: 30px;
+  
+  
+}
+
+label #sidebar_btn{
+  z-index: 1;
+  color: #fff;
+  display: flex;
+  cursor: pointer;
+  width: auto;
+  margin-bottom: 20px;
+  transition: 0.5s;
+  transition-property: color;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 20px;
+  margin-right: 50px;
+}
+
+
+label #sidebar_btn:hover{
+  color: #19B3D3;
+}
+
+#check:checked ~ .sidebar{
+  right: -180px;
+}
+
+#check:checked ~ .sidebar a span{
+  display: none;
+}
+
+#check:checked ~ .sidebar a{
+  font-size: 20px;
+  margin-right: 170px;
+  width: 80px;
+}
+
+/*
+.content{
+  margin-right: 200px;
+  background: url("https://image.freepik.com/vector-gratis/fondo-pantalla-frutas-verduras_52683-35620.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 125vh;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: row;
+}
+*/
+
+.izquierda{
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+	align-items: center;
+	font-size: 50px;
+	font-weight: 500;
+	color: #ffff;
+	-webkit-text-stroke-width: 0.5px;
+	-webkit-text-stroke-color: black;
+	padding: 100px;
+	
+}
+.com{
+	color: #07A46F;
+	font-size: 60px;
+}
+.derecha{
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	align-items: center;
+	font-weight: 500;
+	padding: 150px;
+	text-align: center;
+}
+.darriba{
+	display: flex;
+	flex-direction: row;
+	font-size: 25px;
+	color: gray;
+	font-weight: 200;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+.dabajo{
+	margin-top: 50px;
+}
+
+#check:checked ~ .content{
+  margin-right: 60px;
+}
+
+#check{
+  display: none;
+}
+
+table{
+	border-spacing: 20px;
+}
+
+.abajo{
+	margin-top: 50px;
+	width: 60%;
+	align-items: center;
+}
+
+.mabajo{
+	margin-top: 850px;
+}
+
+table, th, td{
+	border: 1px solid black;
+}
+
+th, td{
+	text-align: center;
+}
+
+th{
+	background-color: gray;
+	padding: 10px;
+}
+
+td{
+	background-color: white;
+}
+
+td input[type=checkbox]{
+	width:36px;
+	height:36px;
+	transition:.2s;
+}
+
+td input[type=checkbox]:checked{
+	background-color: #07A46F;
+}
+
+.index-news{
+	width: 100%;
+	padding: 80px 0px;
+	overflow:hidden;
+}
+
+.index-news article{
+	width: 18%;
+	background-color: #07A46F;
+	float:left;
+	margin:0px 1%;
+}
+
+.news-img{
+	width:100%;
+	height:120px;
+	background-color:gray;
+	/*background-image: url('');*/
+}
+
+.index-news h3{
+	font-weight:400;
+	font-size:18px;
+	text-align:center;
+	padding-bottom:10px;
+	padding-top:10px;
+	text-transform:uppercase;
+	color:#000;
+}
+
+.index-news p{
+	font-weight:400;
+	font-size:14px;
+	text-align:center;
+	padding-bottom:10px;
+	color:#000;
+}
+
+.content{
+  margin-right: 250px;
+  background: url("") no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.Title{
+	
+	display: flex;
+	flex-direction: row;
+	margin: 30px;
+	padding-top: 50px;
+}
+
+.Title-icon{
+	color: #707070;
+	margin-right: 20px;
+}
+
+.Title-text{
+	color: #07A46F;
+}
+
+.Cards{
+	width:60%;
+	margin: 30px;
+	margin-left: 200px;
+}
+
+.card2{
+	width:80%;
+	margin: 20px;
+	margin-left: 100px;
+}
+
+.card{
+	margin-bottom: 50px;
+}
+
+.card-header{
+	background-color: #07A46F;
+	color: white;
+	
+}
+
+#ver{
+	padding-left: 550px;
+	color: #707070;
+	
+}
+
+.rightbutton{
+	text-align: right;
+	margin-right: 25px;
+}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}

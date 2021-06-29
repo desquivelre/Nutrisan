@@ -1,0 +1,229 @@
+@charset "ISO-8859-1";
+
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe Ui", sans-serif;
+}
+
+header{
+  position: sticky;
+  top: 0px;
+  background: #07A46F;
+  padding: 20px;
+  width: 100%;
+  height: 30px;
+}
+
+.left_area h3{
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 900;
+  width: auto;
+}
+#Nutrisan{
+	position: relative;
+	left: 10px;
+	
+}
+#Avout_us{
+	position: relative;
+	right: 0px;
+}
+
+.left_area span{
+  color: #19B3D3;
+}
+
+.logo{
+	width: 20px;
+	height: 20px;
+	margin: 0px;
+}
+.logout_btn{
+  padding: 1px;
+  background: #19B3D3;
+  text-decoration: none;
+  float: right;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 40px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.logout_btn:hover{
+  background: #0B87A6;
+}
+
+.sidebar {
+  background: #707070;
+  margin-top: 0px;
+  padding-top: 30px;
+  position: fixed;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  transition: 0.5s;
+  transition-property: right;
+}
+
+.sidebar .profile_image{
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+
+.sidebar h4{
+  color: #ccc;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+
+
+.sidebar a{
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  text-decoration: none;
+  padding-left: 30px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.sidebar a:hover{
+  background: #19B3D3;
+}
+
+.sidebar i{
+  padding-right: 30px;
+  
+  
+}
+
+label #sidebar_btn{
+  z-index: 1;
+  color: #fff;
+  display: flex;
+  cursor: pointer;
+  width: auto;
+  margin-bottom: 20px;
+  transition: 0.5s;
+  transition-property: color;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 20px;
+  margin-right: 50px;
+}
+
+
+label #sidebar_btn:hover{
+  color: #19B3D3;
+}
+
+#check:checked ~ .sidebar{
+  right: -180px;
+}
+
+#check:checked ~ .sidebar a span{
+  display: none;
+}
+
+#check:checked ~ .sidebar a{
+  font-size: 20px;
+  margin-right: 170px;
+  width: 80px;
+}
+
+.content{
+  margin-right: 250px;
+  background: url("") no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#check:checked ~ .content{
+  margin-right: 60px;
+}
+
+#check{
+  display: none;
+}
+
+.pa_1{
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	align-content: center;
+	padding-top: 30px;
+	margin-bottom: 20px;
+	
+}
+.pa_opcion{
+	padding-left: 50px;
+	align-items: center;
+	vertical-align: middle;
+	
+}
+.pa_opcion_icono{
+	align-items: center;
+	padding-left: 10px;
+}
+.pa_1_imagen{
+	width: 40%;
+	
+}
+.pa_1_datos{
+	width: 60%;
+}
+.pa_1_imagen img{
+	width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  margin-bottom: 10px;
+}
+.pa_arriba{
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 20px;
+}
+
+.pa_abajo{
+	display: flex;
+	flex-direction: row;
+}
+.pa_abajo{
+	margin: 15px;
+}
+
+.pa_opcion_icono{
+	margin: 30px;
+	width: 40px;
+	height: 40px;
+	margin-bottom: 50px;
+}
+.pa_button{
+	padding: 30px;
+	margin: 30px;
+	text-align: center;
+}
+button{
+	text-align: center;
+}

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/fontawesome.min.css}" rel="stylesheet">
+<link th:href="@{/css/solid.min.css}" rel="stylesheet">
+
+<title>Nutrisan</title>
+</head>
+<body>
+
+	<header th:fragment="header">
+
+		<nav class="navbar navbar-expand-lg navbar-dark"
+			style="background-color: #07a46f;">
+			<div class="container-fluid d-flex align-items-center">
+
+				<i class="fab fa-nutritionix fa-2x"
+					style="margin-left: 10px; color: white;"></i> 
+				
+				<img th:src="@{/logo.png}" alt="" width="60" height="60"> 
+			
+				
+				<a	class="navbar-brand d-flex align-items-center"
+					style="margin-left: 20px;" href="#"> Nutrisan </a>
+
+
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+					aria-controls="navbarNavDropdown" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse d-flex align-items-center"
+					id="navbarNavDropdown">
+					<ul class="navbar-nav ms-auto flex-nowrap"
+						style="margin-left: 30px;">
+						<li class="nav-item" style="margin-left: 30px;"><a
+							class="nav-link active" aria-current="page" href="#">Home</a></li>
+						<li class="nav-item" style="margin-left: 30px;"><a
+							class="nav-link" href="#">News</a></li>
+
+						<li class="nav-item dropdown" style="margin-left: 30px;"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"> Pacient </a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="#">Book an apointment</a></li>
+								<li><a class="dropdown-item" href="#">Appointments history</a></li>
+								<li><a class="dropdown-item" href="#">Choose plan</a></li>
+							</ul></li>
+
+						<li class="nav-item dropdown" style="margin-left: 30px;"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
+								Nutricionista </a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="#">Ver citas</a></li>
+								<li><a class="dropdown-item" href="#">Crear cita</a></li>
+								<li><a class="dropdown-item" href="#">Acceso a horario
+										de atención</a></li>
+							</ul></li>
+						<li class="nav-item dropdown" style="margin-left: 30px;"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMenuLink" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"> Ayuda </a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="#">Reportar problema</a></li>
+								<li><a class="dropdown-item" href="#">Preguntas
+										frecuentes</a></li>
+							</ul></li>
+						<li class="nav-item" style="margin-left: 30px;"><a
+							class="nav-link" href="#"><i class="fas fa-user-circle fa-2x"
+								style="color: white; margin-right: 30px;"></i></a></li>
+
+
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+	</header>
+	
+	
+	
+	
+	
+	<main>
+		<h1>Employees</h1>
+	</main>
+
+	<footer class="page-footer font-small blue pt-4">
+
+        <div class="container-fluid text-center text-md-left" style="background-color:#707070; color: white;">
+            <div class="row" style="margin-top: 100%;">
+                <div class="col-md-5 mt-md-0 mt-3">
+                    <h5>Social media</h5>
+                    <ul style="list-style: none; margin:10px;">
+                        <li>
+                            <a href=""><i class="fab fa-facebook-square fa-2x" style="color: white;"></i></a>
+                            
+                        </li>
+						<br>
+                        <li>
+                            <a title="" href=""><i class="fab fa-instagram fa-2x" style="color: white;"></i></a>
+                        </li>
+                    </ul>
+
+
+                </div>
+
+                <hr class="clearfix w-100 d-md-none pb-3">
+
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                    <h5>Web site</h5>
+
+                    <ul class="list-unstyled" style="padding-left: 0px;">
+                        <li>
+                            Nutrisan
+                        </li>
+                        <li>
+                            Home
+                        </li>
+                        <li>
+                            About us
+                        </li>
+                        <li>
+                            Contact us
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-md-0 mb-3">
+
+                    <h5>Contact</h5>
+
+                    <ul class="list-unstyled">
+                        <li>
+                            Av. Marcopolo 125
+                        </li>
+                        <li>
+                            +51 987652354
+                        </li>
+                        <li>
+                            Lima, Perú
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+      
+
+    </footer>
+
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

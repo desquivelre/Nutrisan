@@ -1,0 +1,53 @@
+@charset "ISO-8859-1";
+
+.content{
+  margin-right: 250px;
+  background: url("https://cdn.discordapp.com/attachments/700043017263775846/854938866518458368/doctor-with-medical-mask-background-banner-vector.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  height:100%;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.Title{
+	
+	display: flex;
+	flex-direction: row;
+	margin: 30px;
+	padding-top: 50px;
+}
+
+.Title-icon{
+	color: #707070;
+	margin-right: 20px;
+}
+
+.Title-text{
+	color: #07A46F;
+}
+
+.Cards{
+	width:60%;
+	margin: 30px;
+	margin-left: 200px;
+}
+
+.card{
+	margin-bottom: 50px;
+}
+
+.card-header{
+	background-color: #07A46F;
+	color: white;
+	
+}
+
+#ver{
+	padding-left: 550px;
+	color: #707070;
+	
+}
+
+
