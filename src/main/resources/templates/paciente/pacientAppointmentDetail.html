@@ -9,7 +9,7 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-GNJJMF8KL8');
-    </script>
+</script>
 <meta charset="utf-8">
 <title>Sidebar Dashboard Template</title>
 <link
@@ -21,6 +21,11 @@
 <link th:href="@{/css/StylePacientAppointmentDetail.css}"rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
@@ -88,7 +93,7 @@
 
 		<div class="sidebar">
 			<center>
-				<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
+				<img th:src="@{/img/prota.jpg}" class="profile_image" alt="" style="margin-left: 10px;">
 				<h4>TakemichiGOD</h4>
 			</center>
 
@@ -112,7 +117,9 @@
 				<a href="url" th:text="${citas.link}" class="Title-info-link"></a>
 				
 			</div>
-			<p>-------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+			
+			<p class="border"></p>
+			
 			<div class="Nutricionist">
 				<div class="NutricionistDetail">
 					<div class="NutricionistTitle"> Nutricionist: </div>
@@ -130,28 +137,49 @@
 				
 				<div th:text="'Score: '+${citas.horario.nutricionista.puntuacion}"></div>
 				
-				<form th:action="@{/inicio/save}" th:object="${nutricionistaNew}" method="post">
-				  <p class="clasificacion">
-				    <input type="text" name="estrellas" th:field="*{puntuacion}">
-				    <label for="puntuacion"></label>
+			
 
-				  </p>
-				  <button type="submit" class="btn btn-primary" id="buttonscore">Submit</button>
+				<div class="container d-flex">
+					    <div class="row">
+					        
+					            <div class="stars">
+					                <form th:object="${nutricionistamodificar}" th:action="@{/inicio/save/}+${citas.cita_id}", method="post"> 
+					                	<input type="text" class="form-control" placeholder="" th:field=*{dni} hidden="true">
+					                	<input type="text" class="form-control" placeholder="" th:field=*{nombre} hidden="true">
+					                	<input type="text" class="form-control" placeholder="" th:field=*{apellido} hidden="true">
+					                	<input type="text" class="form-control" placeholder="" th:field=*{password} hidden="true">
+					                	<input type="text" class="form-control" placeholder="" th:field=*{numTelefono} hidden="true">
+					                	<input type="text" class="form-control" placeholder="" th:field=*{email} hidden="true">
+					                	<input type="text" class="form-control" placeholder="" th:field=*{habilitado} hidden="true">
+					                	
+					                	<input class="star star-5" id="star-5" type="radio" name="star" th:field="*{puntuacion}" value="5"/> <label class="star star-5" for="star-5"></label> 
+                                        <input class="star star-4" id="star-4" type="radio" name="star" th:field="*{puntuacion}" value="4"/> <label class="star star-4" for="star-4"></label>
+                                        <input class="star star-3" id="star-3" type="radio" name="star" th:field="*{puntuacion}" value="3"/> <label class="star star-3" for="star-3"></label> 
+                                        <input class="star star-2" id="star-2" type="radio" name="star" th:field="*{puntuacion}" value="2"/> <label class="star star-2" for="star-2"></label> 
+                                        <input class="star star-1" id="star-1" type="radio" name="star" th:field="*{puntuacion}" value="1"/> <label class="star star-1" for="star-1"></label>
+					                	      
+						           
+						                <button type="submit" class="btn btn-primary" id="buttonscore">Submit</button>
+					                </form>
+					            </div>
+					        
+					    </div>
+				</div>
+				 
 				
-				</form>
+			
 				
 				
 				</div>
 				
 			</div>
 			
-			<p>-------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-			
+			<p class="border"></p>
 			
 			<div class="RecommendationTitle">Recommendations: </div>
 			<div class="RecommendationInfo" th:text="${citas.recomendacion}"></div>
 			
-			<p>-------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+			<p class="border"></p>
 			
 			<div class="AttachedFilesTitle">Attached files:</div>
 			
@@ -190,9 +218,47 @@
 			    <span class="visually-hidden">Next</span>
 			  </button>
 			</div>
+			
+			<!-- PRUEBA -->
+			<p class="border"></p>
+
+			<div class="container mt-5">
+			    <div class="row d-flex justify-content-center">
+			        <div class="col-md-8">
+			            <div class="headings d-flex justify-content-between align-items-center mb-3">
+			                <h5>Comentarios</h5>
+			                
+			                      
+			                <div class="buttons"> <span class="badge bg-white d-flex flex-row align-items-center"> <span class="text-primary">Comments "ON"</span>
+			                <div class="form-check form-switch"> <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked> </div>
+			                    </span> </div>
+			                 
+			            </div>
+			            
+					     <form class="form_comentarios d-flex flex-wrap" id="formulariocomentario" th:object="${nuevocomentario}" th:action="@{/inicio/save/}+${citas.cita_id}", method="post">
+					     <textarea rows="" cols="", placeholder="   Inserte un comentario" th:field="*{texto}"></textarea>
+					     <button class="btn-primary" type="submit">Comentar</button>
+					     </form>
+		           
+			      
+			            <div th:each="comentario:${comentarios}" class="card p-3 mt-2" id="comentarios" style="border-width: 1px;border-color: #707070;border-style: solid; margin-bottom: 20px;">
+			                <div class="d-flex justify-content-between align-items-center" >
+			                    <div class="user d-flex flex-row align-items-center"> <i class="far fa-user-circle fa-2x" style="margin-right: 30px;"></i><span><small th:text="${comentario.paciente.nombre}" class="font-weight-bold text-primary" style="margin-right: 20px;"></small> <small th:text="${comentario.texto}" class="font-weight-bold"></small></span> </div>
+			                </div>	        
+			            </div>
+			      
+
+			        </div>
+			    </div>
+			</div>
+			<br>
+			<br>
+			<br>
 			<br>
 			
+			
 		</div>
+	
 	
 </body>
 

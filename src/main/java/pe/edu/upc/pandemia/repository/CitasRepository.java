@@ -18,4 +18,6 @@ public interface CitasRepository extends JpaRepository<Citas, Integer> {
 	@Query("SELECT c FROM Citas c WHERE c.horario.nutricionista.dni= :dni")
 	List<Citas>filterById_nutricionsita(@Param("dni")Integer dni);
 
+	
+	
 }

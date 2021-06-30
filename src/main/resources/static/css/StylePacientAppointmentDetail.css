@@ -17,6 +17,10 @@
   height: 150px;
   border-radius: 150px;
   margin-bottom: 10px;
+  margin-left: 70px;
+  border-color: #707070;
+  border-width: 1px;
+  border-style: solid; 
 }
 
 
@@ -39,6 +43,8 @@
 	color: #707070;
 	font-weight: bold;
 	font-size: 20px;
+	
+
 }
 
 .Title-info-link{
@@ -55,6 +61,10 @@
 	
 	display: flex;
 	flex-direction: row;
+	padding-top:40px;
+	padding-bottom: 40px;
+
+
 }
 
 .NutricionistDetail{
@@ -150,10 +160,153 @@ input[type="radio"]:checked ~ label {
 }
 
 #buttonscore{
-	padding:10px;
-	margin-left: 70px;
 	
+	margin-left: 130px;
+	margin-top: 20px;
+	background-color: #07A46F;
+	border-color: #07A46F;
+	
+}
+body {
+    background-color: #f7f6f6
+}
+
+.card {
+    border: none;
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    border-radius: 4px
+}
+
+.dots {
+    height: 4px;
+    width: 4px;
+    margin-bottom: 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block
+}
+
+.badge {
+    padding: 7px;
+    padding-right: 9px;
+    padding-left: 16px;
+    box-shadow: 5px 6px 6px 2px #e9ecef
+}
+
+.user-img {
+    margin-top: 4px
+}
+
+.check-icon {
+    font-size: 17px;
+    color: #c3bfbf;
+    top: 1px;
+    position: relative;
+    margin-left: 3px
+}
+
+.form-check-input {
+    margin-top: 6px;
+    margin-left: -24px !important;
+    cursor: pointer
+}
+
+.form-check-input:focus {
+    box-shadow: none
+}
+
+.icons i {
+    margin-left: 8px
+}
+
+.reply {
+    margin-left: 12px
+}
+
+.reply small {
+    color: #b7b4b4
+}
+
+.reply small:hover {
+    color: green;
+    cursor: pointer
 }
 
 
+
+#formulariocomentario textarea{
+	
+	padding-left: 0px;
+	
+	width: 500px;
+	margin-right: 40px;
+	margin-bottom: 30px;
+	margin-left: 30px;
+}
+
+
+#formulariocomentario button{
+	
+	background-color: #07A46F;
+	margin-bottom: 30px;
+	border-color: #07A46F;
+	margin-top:5px;
+	height: 40px;
+}
+
+#comentarios{
+	margin-left: 80px;
+	
+	
+}
+
+div.stars {
+    width: 270px;
+    display: inline-block;
+    padding-left: 0px;
+   margin-left: 0px;
+  
+}
+
+.mt-200 {
+    margin-top: 10px;
+
+    
+}
+
+input.star {
+    display: none
+}
+
+label.star {
+    float: right;
+    padding: 10px;
+    font-size: 20px;
+    color: #4A148C;
+    transition: all .2s
+}
+
+input.star:checked~label.star:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .25s
+}
+
+input.star-5:checked~label.star:before {
+    color: #FE7;
+    text-shadow: 0 0 20px #952
+}
+
+input.star-1:checked~label.star:before {
+    color: #F62
+}
+
+label.star:hover {
+    transform: rotate(-15deg) scale(1.3)
+}
+
+label.star:before {
+    content: '\f006';
+    font-family: FontAwesome
+}
 

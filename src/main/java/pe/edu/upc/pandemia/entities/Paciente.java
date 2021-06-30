@@ -42,10 +42,17 @@ public class Paciente {
 	@OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY)
     private List<HistorialPlan> historialPlan;
 	
+	@OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY)
+    private List<Comentario> comentario;
 
+	public Paciente() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Paciente(Integer dni, String password, String nombre, String apellido, String email, int habilitado,
-			List<Citas> citas, List<HistorialPlan> historialPlan) {
+			List<pe.edu.upc.pandemia.entities.Citas> citas, List<HistorialPlan> historialPlan,
+			List<Comentario> comentario) {
 		super();
 		this.dni = dni;
 		this.password = password;
@@ -55,6 +62,7 @@ public class Paciente {
 		this.habilitado = habilitado;
 		Citas = citas;
 		this.historialPlan = historialPlan;
+		this.comentario = comentario;
 	}
 
 	public Integer getDni() {
@@ -105,12 +113,12 @@ public class Paciente {
 		this.habilitado = habilitado;
 	}
 
-	public List<Citas> getCita() {
+	public List<Citas> getCitas() {
 		return Citas;
 	}
 
-	public void setCita(List<Citas> cita) {
-		Citas = cita;
+	public void setCitas(List<Citas> citas) {
+		Citas = citas;
 	}
 
 	public List<HistorialPlan> getHistorialPlan() {
@@ -121,12 +129,15 @@ public class Paciente {
 		this.historialPlan = historialPlan;
 	}
 
-	public Paciente() {
-		super();
-		// TODO Auto-generated constructor stub
+	public List<Comentario> getComentario() {
+		return comentario;
 	}
-	
-	
+
+	public void setComentario(List<Comentario> comentario) {
+		this.comentario = comentario;
+	}
+
+
 	
 	
 	

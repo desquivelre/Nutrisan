@@ -39,10 +39,6 @@ public class Nutricionista {
 	@Column(name = "puntuacion", length = 1)
 	private int puntuacion;
 	
-	@Column(name="dateRegistro")
-	@Temporal(TemporalType.DATE)
-	private Date dateRegistro;
-	
 	@Column(name = "habilitado", length = 1, nullable = false)
 	private int habilitado;
 
@@ -52,10 +48,18 @@ public class Nutricionista {
 	
 	@OneToMany(mappedBy = "nutricionista", fetch = FetchType.LAZY)
     private List<Horario> Horarios;
+	
+	@OneToMany(mappedBy = "nutricionista", fetch = FetchType.LAZY)
+    private List<Comentario> comentario;
+
+	public Nutricionista() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Nutricionista(Integer dni, String nombre, String apellido, String password, Integer numTelefono,
-			String email, int puntuacion, Date dateRegistro, int habilitado, List<Curriculum> curriculums,
-			List<Horario> horarios) {
+			String email, int puntuacion, int habilitado, List<Curriculum> curriculums, List<Horario> horarios,
+			List<Comentario> comentario) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
@@ -64,10 +68,10 @@ public class Nutricionista {
 		this.numTelefono = numTelefono;
 		this.email = email;
 		this.puntuacion = puntuacion;
-		this.dateRegistro = dateRegistro;
 		this.habilitado = habilitado;
 		Curriculums = curriculums;
 		Horarios = horarios;
+		this.comentario = comentario;
 	}
 
 	public Integer getDni() {
@@ -126,14 +130,6 @@ public class Nutricionista {
 		this.puntuacion = puntuacion;
 	}
 
-	public Date getDateRegistro() {
-		return dateRegistro;
-	}
-
-	public void setDateRegistro(Date dateRegistro) {
-		this.dateRegistro = dateRegistro;
-	}
-
 	public int getHabilitado() {
 		return habilitado;
 	}
@@ -158,18 +154,15 @@ public class Nutricionista {
 		Horarios = horarios;
 	}
 
-	public Nutricionista() {
-		super();
-		// TODO Auto-generated constructor stub
+	public List<Comentario> getComentario() {
+		return comentario;
 	}
-	
-	// Cons, get y set
 
-	
+	public void setComentario(List<Comentario> comentario) {
+		this.comentario = comentario;
+	}
 
-	
-	
-	
+
 
 	
 }

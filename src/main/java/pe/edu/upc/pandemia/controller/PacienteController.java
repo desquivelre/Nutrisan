@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pe.edu.upc.pandemia.entities.Citas;
+import pe.edu.upc.pandemia.entities.Comentario;
 import pe.edu.upc.pandemia.entities.Curriculum;
 import pe.edu.upc.pandemia.entities.Horario;
 import pe.edu.upc.pandemia.entities.Nutricionista;
 import pe.edu.upc.pandemia.entities.Paciente;
 import pe.edu.upc.pandemia.service.crud.CitasService;
+import pe.edu.upc.pandemia.service.crud.ComentarioService;
 import pe.edu.upc.pandemia.service.crud.CurriculumService;
 import pe.edu.upc.pandemia.service.crud.HorarioService;
 import pe.edu.upc.pandemia.service.crud.NutricionistaService;
@@ -39,6 +41,9 @@ public class PacienteController {
 	
 	@Autowired
 	private HorarioService horarioService;
+	
+	@Autowired
+	private ComentarioService comentarioService;
 	
 	
 
@@ -141,14 +146,25 @@ public class PacienteController {
 	public String response_4(Model model, @PathVariable("id")Integer id) {
 		 
 		try {
-			Optional<Citas>citas = citasService.findById(id);
+			Optional<Citas> citas = citasService.findById(id);
+			
+			int codigonutricionista = citas.get().getHorario().getNutricionista().getDni();		
+			List<Comentario>comentarios= comentarioService.filterbycita(codigonutricionista);
+					
+			
 			
 			 if(citas.isPresent()) {
 				 
-				    Nutricionista nutricionista =new Nutricionista();
-				    nutricionista=citas.get().getHorario().getNutricionista();
-					model.addAttribute("nutricionistaNew", nutricionista);
+				    
+					Optional<Nutricionista> nutricionistamodificar = nutricionistaService.findById(codigonutricionista);
+					Comentario nuevocomentario = new Comentario();
+					
+					model.addAttribute("nutricionistamodificar", nutricionistamodificar);
 	                model.addAttribute("citas", citas.get());
+	                model.addAttribute("comentarios", comentarios);
+	                
+	                model.addAttribute("nuevocomentario", nuevocomentario);
+	                
 	                return "paciente/pacientAppointmentDetail.html";
 	            }
 		} catch (Exception e) {
@@ -159,18 +175,47 @@ public class PacienteController {
 		return "paciente/pacientAppointment.html";
 	}
 	
-	@PostMapping("/save")	// GET: /apartments/save
-	public String saveEdit(Model model, @ModelAttribute("nutricionistaNew") Nutricionista nutricionista) {
+	@PostMapping("/save/{id}")	
+	public String saveEdit(Model model, @ModelAttribute("nutricionistamodificar") Nutricionista nutricionistamodificar, @ModelAttribute("nuevocomentario") Comentario nuevocomentario, @PathVariable("id") Integer id) {
 		try {
-			Nutricionista nutricionistaReturn = nutricionistaService.update(nutricionista);
-			model.addAttribute("nutricionistaReturn", nutricionistaReturn);			
-			return "paciente/pacientAppointmentDetail.html"; 
+			
+			Optional<Citas> citas = citasService.findById(id);
+			Nutricionista nutricionistamodificado = nutricionistaService.update(nutricionistamodificar); 
+			
+			return "redirect:/inicio/"+citas.get().getCita_id()+"/appointmentDetail"; 
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
+		
+		
 		return "redirect:/inicio";
 	}
+	
+	@PostMapping("/savecomentario/{id}")	
+	public String saveEdit(Model model, @ModelAttribute("nuevocomentario") Comentario nuevocomentario, @PathVariable("id") Integer id) {
+		try {
+			
+			Optional<Citas> citas = citasService.findById(id);
+			
+			List<Comentario>numComentarios=comentarioService.getAll();
+		
+			nuevocomentario.setComentarioId(numComentarios.size()+1);
+			nuevocomentario.setPaciente(citas.get().getPaciente());
+			nuevocomentario.setNutricionista(citas.get().getHorario().getNutricionista());
+			
+			Comentario comentarioReturn = comentarioService.create(nuevocomentario);
+			
+			return "redirect:/inicio/"+citas.get().getCita_id()+"/appointmentDetail"; 
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		
+		
+		return "redirect:/inicio";
+	}
+	
 	
 	@GetMapping("{horario_id}/save_cita/{paciente_dni}")
 	public String response_Save(Model model, @PathVariable("horario_id") Integer horario_id, @PathVariable("paciente_dni") Integer paciente_dni) {

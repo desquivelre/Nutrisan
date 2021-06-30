@@ -1,6 +1,7 @@
 package pe.edu.upc.pandemia.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -49,6 +51,11 @@ public class Citas {
 	@Column(name = "link", length = 255, nullable = true)
 	private String link;
 
+	public Citas() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Citas(Integer cita_id, Paciente paciente, Date fecha, String recomendacion, Horario horario, String asunto,
 			String link) {
 		super();
@@ -59,11 +66,6 @@ public class Citas {
 		this.horario = horario;
 		this.asunto = asunto;
 		this.link = link;
-	}
-
-	public Citas() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getCita_id() {
@@ -122,9 +124,4 @@ public class Citas {
 		this.link = link;
 	}
 	
-	
-	
-	
-	
-
 }
