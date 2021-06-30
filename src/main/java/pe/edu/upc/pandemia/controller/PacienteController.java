@@ -62,7 +62,7 @@ public class PacienteController {
 	@GetMapping("/myaccount")
 	public String response_2(Model model) {
 		try {
-			Optional<Paciente> paciente = pacienteService.findById(77509725);
+			Optional<Paciente> paciente = pacienteService.findById(78038327);
 			if(paciente.isPresent()) {
 				model.addAttribute("paciente", paciente.get());
 				return "paciente/pacientAccount.html"; // Archivo Html
@@ -131,7 +131,7 @@ public class PacienteController {
 		
 		
         try {      	
-        	List<Citas> citas = citasService.filterById(41017264);
+        	List<Citas> citas = citasService.filterById(79976993);
             model.addAttribute("citas", citas);
         } catch (Exception e) {
 

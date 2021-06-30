@@ -235,7 +235,7 @@
 			                 
 			            </div>
 			            
-					     <form class="form_comentarios d-flex flex-wrap" id="formulariocomentario" th:object="${nuevocomentario}" th:action="@{/inicio/save/}+${citas.cita_id}", method="post">
+					     <form class="form_comentarios d-flex flex-wrap" id="formulariocomentario" th:object="${nuevocomentario}" th:action="@{/inicio/savecomentario/}+${citas.cita_id}", method="post">
 					     <textarea rows="" cols="", placeholder="   Inserte un comentario" th:field="*{texto}"></textarea>
 					     <button class="btn-primary" type="submit">Comentar</button>
 					     </form>
