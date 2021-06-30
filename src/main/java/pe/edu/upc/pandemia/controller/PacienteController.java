@@ -244,4 +244,26 @@ public class PacienteController {
         return "paciente/planPacient.html";
     }
 	
+	@GetMapping("{pacient_id}/actualizar")
+	public String response_actualizar(Model model, @PathVariable("pacient_id") Integer id) {
+		try {
+			Optional<Paciente> paciente = pacienteService.findById(id);
+			model.addAttribute("paciente", paciente.get());
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return "paciente/pacientUpdate.html";
+	}
+	
+	@PostMapping("update")
+	public String update(Model model, @ModelAttribute("paciente") Paciente paciente) {
+		try {
+			Paciente pacienteUpdate = pacienteService.update(paciente);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return "redirect:/";
+	}
+	
 }

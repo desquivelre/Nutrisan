@@ -148,7 +148,7 @@ label #sidebar_btn:hover{
 
 .content{
   margin-right: 250px;
-  background: url("") no-repeat;
+  background: url("https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-doctor-running-minimalist-background-structure-image_66071.jpg") no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -227,7 +227,34 @@ label #sidebar_btn:hover{
 button{
 	text-align: center;
 }
+.update{
+	margin-top: 15px; 
+	margin-left: 20px;
+	margin-right: 20px;
+}
 .botones{
 	display: flex;
 	flex-direction: row;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
 }
+.btn.btn-primary{
+	background-color: #07A46F;
+	border-color: #07A46F;
+	margin-left: 35px;
+	
+}
+.btn.btn-primary:hover {
+	background-color: #707070;
+	border-color: #707070;
+}
+.marco{
+	border-style: solid;
+	border-color: #707070;
+	border-width: 3px;
+	border-radius: 20px;
+	margin-top: 25px;
+}
+	
