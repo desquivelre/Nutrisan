@@ -92,7 +92,7 @@
 		<a href="#"><i class="fas fa-desktop"></i><span>My account</span></a>
 		<a href="#"><i class="fas fa-cogs"></i><span>List</span></a> <a
 			href="#"><i class="fas fa-table"></i><span>My appointments</span></a>
-		<a th:href="@{'/schedule'}"><i class="fas fa-th"></i><span>Schedule</span></a>
+		<a th:href="@{'/nutricionist/'+${dni}+'/schedules'}"><i class="fas fa-th"></i><span>See schedules</span></a>
 		<a th:href="@{'/inicio' + '/myaccount'}"><i class="fas fa-th"></i><span>Change
 				account</span></a> <a href="#"><i class="fas fa-sliders-h"></i><span>Log
 				out</span></a>
@@ -109,7 +109,7 @@
 		</div>
 	</div>
 	<div class="card2">
-		<form th:action="@{/schedule/savenew}" th:object="${horarioNew}"
+		<form th:action="@{/nutricionist/savenew/}+${nutricionista.dni}" th:object="${horarioNew}"
 			method="post">
 			<div class="card-body">
 				<div class="col-md-8">
@@ -117,6 +117,8 @@
 						<label for="hora_inicio" class="form-label">Start Time</label> <input
 							type="datetime" class="form-control" name="example-text-input"
 							th:field="*{hora_inicio}" placeholder="2021/06/30 8:00:00">
+						<input type="text" class="form-control" th:field="*{id}">
+						<input type="text" class="form-control" th:field="*{nutricionista}">
 					</div>
 					<div class="form-group">
 						<label for="hora_fin" class="form-label">End Time</label> <input
@@ -124,8 +126,10 @@
 							th:field="*{hora_fin}" placeholder="2021/06/30 24:00:00">
 					</div>
 					<div class="card-footer text-right">
-						<a th:href="@{/schedule}" class="btn btn-danger">Cancel</a>
+						<a th:href="@{'/nutricionist/'+${dni}+'/schedules'}" class="btn btn-danger">Cancel</a>
+						
 						<button type="submit" class="btn btn-success">Set</button>
+
 					</div>
 				</div>
 			</div>

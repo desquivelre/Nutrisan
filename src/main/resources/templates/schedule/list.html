@@ -84,7 +84,7 @@
 	<div class="sidebar">
 		<center>
 			<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
-			<h4>TakemichiGOD</h4>
+			<h4>Nutritionist</h4>
 		</center>
 
 
@@ -107,7 +107,7 @@
 			</div>
 		</div>
 		<div class="rightbutton">
-			<a th:href="@{'/schedule/new'}" class="btn btn-success"> Set new
+			<a th:href="@{'/nutricionist/'+${nutricionista.dni}+'/schedules/new'}" class="btn btn-success"> Set new
 				schedule</a>
 		</div>
 

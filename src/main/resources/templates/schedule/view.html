@@ -92,7 +92,7 @@
 		<a href="#"><i class="fas fa-desktop"></i><span>My account</span></a>
 		<a href="#"><i class="fas fa-cogs"></i><span>List</span></a> <a
 			href="#"><i class="fas fa-table"></i><span>My appointments</span></a>
-		<a th:href="@{'/schedule'}"><i class="fas fa-th"></i><span>Schedule</span></a>
+		<a th:href="@{'/nutricionist/'+${nutricionista.dni}+'/schedules'}"><i class="fas fa-th"></i><span>See schedules</span></a>
 		<a th:href="@{'/inicio' + '/myaccount'}"><i class="fas fa-th"></i><span>Change
 				account</span></a> <a href="#"><i class="fas fa-sliders-h"></i><span>Log
 				out</span></a>
@@ -108,7 +108,7 @@
 					End Time: <span th:text="${horario.hora_fin}"></span> <br>
 				</p>
 
-				<a th:href="@{/schedule}" class="btn btn-primary">Return</a>
+				<a th:href="@{'/nutricionist/'+${nutricionista.dni}+'/schedules'}" class="btn btn-primary">Return</a>
 			</div>
 		</div>
 		<div class="form-popup" id="myForm">

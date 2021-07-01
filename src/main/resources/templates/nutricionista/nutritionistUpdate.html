@@ -92,8 +92,8 @@
 		<a href="#"><i class="fas fa-desktop"></i><span>My account</span></a>
 		<a th:href="@{/appoimentlist}"><i class="fas fa-cogs"></i><span>Appointment
 				list</span></a> <a href="#"><i class="fas fa-table"></i><span>My
-				appointments</span></a> <a th:href="@{'/schedule'}"><i class="fas fa-th"></i><span>Choose
-				a schedule</span></a> <a th:href="@{'/inicio' + '/myaccount'}"><i
+				appointments</span></a> <a th:href="@{'/nutricionist/'+${nutricionista.dni}+'/schedules'}"><i class="fas fa-th"></i><span>See
+				schedules</span></a> <a th:href="@{'/inicio' + '/myaccount'}"><i
 			class="fas fa-th"></i><span>Change account</span></a> <a href="#"><i
 			class="fas fa-sliders-h"></i><span>Log out</span></a>
 	</div>
@@ -109,15 +109,30 @@
 					<div class="titulo">
 						<h2>Update my data</h2>
 					</div>
-					<br>
-					<br>
+					<br> <br>
 					<div class="update_texto">
 						<h5>New email:</h5>
 					</div>
 					<div class="update_input">
 						<input type="text" class="form-control" placeholder=""
 							th:field="*{email}"> <input type="text"
-							class="form-control" placeholder="" th:field="*{dni}" hidden="true">
+							class="form-control" placeholder="" th:field="*{dni}"
+							hidden="true">
+							<input type="text"
+							class="form-control" placeholder="" th:field="*{nombre}"
+							hidden="true">
+							<input type="text"
+							class="form-control" placeholder="" th:field="*{apellido}"
+							hidden="true">
+							<input type="text"
+							class="form-control" placeholder="" th:field="*{password}"
+							hidden="true">
+							<input type="text"
+							class="form-control" placeholder="" th:field="*{habilitado}"
+							hidden="true">
+							<input type="text"
+							class="form-control" placeholder="" th:field="*{puntuacion}"
+							hidden="true">
 					</div>
 					<div class="update_texto">
 						<h5>New cellphone number:</h5>
@@ -130,8 +145,9 @@
 
 				<div class="botones">
 					<button type="button" class="btn btn-danger">Cancel</button>
-					<button type="submit" class="btn btn-primary">Save changes</button>
-
+					<a  th:href="@{'/nutricionist'}">
+						<button type="submit" class="btn btn-primary">Save changes</button>
+					</a>
 				</div>
 			</div>
 

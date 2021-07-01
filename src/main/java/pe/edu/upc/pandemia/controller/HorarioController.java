@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -31,7 +32,7 @@ public class HorarioController {
 	@Autowired
 	private HorarioService horarioService;
 	
-	@GetMapping		// GET: /apartments
+	@GetMapping		// GET: /schedule
 	public String listar( Model model ) {
 		try {
 			List<Horario> horarios = horarioService.getAll();
@@ -44,38 +45,20 @@ public class HorarioController {
 		return "schedule/list";
 	}
 	
-	@GetMapping("new")	
-	public String newItem(Model model) {
+	@GetMapping("/viewhorario/{nutricionista_dni}/{horario_id}")
+	public String saveHorario(Model model,@PathVariable("nutricionista_dni") Integer dni,@PathVariable("horario_id") Integer id)
+	{
 		try {
-			Horario horario = new Horario();
-			//Optional<Nutricionista> nutricionista= nutricionistaService.findById(12345678);
-			//horario.setNutricionista(nutricionista.get());
-			model.addAttribute("horarioNew", horario);
-			//horarioService.create(horario);
-			return "schedule/new";
+			Optional<Nutricionista> nutricionista=nutricionistaService.findById(dni);
+			Optional<Horario> horario=horarioService.findById(id);
+			model.addAttribute("nutricionista",nutricionista.get());
+			model.addAttribute("horario",horario.get());
+			return "schedule/view.html";
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
-		return "redirect:/schedule";	// url
+		return "schedule/view.html";
 	}
-	
-	@PostMapping("savenew")	// GET: /schedule/savenew
-	public String saveNew(Model model, @ModelAttribute("horarioNew") Horario horario) {
-		try {
-			Optional<Nutricionista> nutricionista= nutricionistaService.findById(12345678);
-			horario.setNutricionista(nutricionista.get());
-			
-			
-			
-			Horario horarioReturn = horarioService.create(horario);
-			model.addAttribute("horario", horarioReturn);			
-			return "schedule/view"; // Archivo Html
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-		return "redirect:/schedule";
-	}	
 
 }
