@@ -112,12 +112,16 @@
 		 
       <div class="Cards">
                 <div th:each="cita: ${citas}" class="card">
-                    <div th:text="'Pacient Name: '+' '+${cita.paciente.nombre} " class="card-header">
+                    <div th:text="'Appointment '+' '+${cita.cita_id} " class="card-header">
                     </div>
                     <div class="card-body">
-                        <h5 th:text="'Appointment date :'+' '+${cita.fecha}" class="card-title"></h5>
-                        <p class="card-text" th:text="${cita.asunto}"></p>
-                        <a th:href="@{'/appoimentlist/'+${cita.cita_id}+'/appoimentDetails'}" class="fas fa-arrow-alt-circle-right fa-2x" id=ver>View more Details</a>
+                  		<h5 th:text="${cita.asunto}" class="card-title"></h5>                
+       					    <li th:text="' Pacient DNI: '+${cita.paciente.dni}"></li>				
+					   		<li th:text="' Pacient name: '+' '+${cita.paciente.nombre}+' '+${cita.paciente.apellido}"></li>
+					   		<li th:text="' Appointment Date: '+${cita.fecha}"></li>
+					   	</ul>	
+                        
+                        <a th:href="@{'/appoimentlist/'+${cita.cita_id}+'/appoimentDetails'}" class="fas fa-arrow-alt-circle-right fa-2x" id="ver"></a>
                     </div>
                 </div>
             </div>

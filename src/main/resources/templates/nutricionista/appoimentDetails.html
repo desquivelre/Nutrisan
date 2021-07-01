@@ -109,7 +109,9 @@
 				<a href="url" th:text="${citas.link}" class="Title-info-link"></a>
 				
 			</div>
-			<p>-------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+			
+			<p class="border"></p>
+			
 			<div class="Pacient">
 				<div class="PacientDetail">
 					<div class="PacientTitle">Pacient: </div>
@@ -124,18 +126,57 @@
 				<img th:src="@{/img/paciente.jpg}" class="profile_image" alt="">
 			</div>
 			
-			<p>-------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-			
+			<p class="border"></p>
 			
 			<div class="RecommendationTitle">Recommendations: </div>
 			<div class="RecommendationInfo" th:text="${citas.recomendacion}"></div>
 			
 		<form th:action="@{/appoimentlist/save}" th:object="${citas}" method="post">
 			<div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" th:field="*{recomendacion}" aria-describedby="button-addon2">
-  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Submit</button>
-</div>
-</form>	
+		  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" th:field="*{recomendacion}" aria-describedby="button-addon2">
+		  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Submit</button>
+		</div>
+		</form>	
+		<p class="border" style="margin-top: 40px;"></p>
+			
+			<div class="AttachedFilesTitle">Attached files:</div>
+			
+			<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+			  <div class="carousel-indicators">
+			    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+			    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			  </div>
+			  <div class="carousel-inner">
+			    <div class="carousel-item active" data-bs-interval="10000">
+			      <img th:src="@{/img/multifrutas.jpg}" class="d-block w-100" alt="...">
+			      <div class="carousel-caption d-none d-md-block">
+			        <h5>First recommendation</h5>			      
+			      </div>
+			    </div>
+			    <div class="carousel-item" data-bs-interval="2000">
+			      <img th:src="@{/img/ejercicio.jpg}" class="d-block w-100" alt="...">
+			      <div class="carousel-caption d-none d-md-block">
+			        <h5>Second recommendation</h5>			      
+			      </div>
+			    </div>
+			    <div class="carousel-item">
+			      <img th:src="@{/img/dormir.jpg}" class="d-block w-100" alt="...">
+			      <div class="carousel-caption d-none d-md-block">
+			        <h5>Third recommendation</h5>
+			      </div>
+			    </div>
+			  </div>
+			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Previous</span>
+			  </button>
+			  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Next</span>
+			  </button>
+			</div>
+		
 		
 		</div>
 	
