@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import pe.edu.upc.pandemia.entities.Citas;
+import pe.edu.upc.pandemia.entities.Nutricionista;
 import pe.edu.upc.pandemia.service.crud.CitasService;
+import pe.edu.upc.pandemia.service.crud.NutricionistaService;
 
 @Controller
 @RequestMapping("/appoimentlist")
@@ -24,14 +26,19 @@ public class CitasController {
     @Autowired
 	private CitasService citasService;
 	
-
+    @Autowired
+    private NutricionistaService nutricionistaService; 
 	
     
-    @GetMapping()
-    public String Listar(Model model) {
+    @GetMapping("{id_nutricionista}")
+    public String Listar(Model model, @PathVariable("id_nutricionista") Integer id_nutricionista) {
      try {
-		List<Citas> citas= citasService.filterById_nutricionsita(12345678);
+    	 Optional<Nutricionista> nutricionista = nutricionistaService.findById(id_nutricionista);
+    	 model.addAttribute("nutricionista", nutricionista.get());
+    	 
+		List<Citas> citas= citasService.filterById_nutricionsita(id_nutricionista);
 		model.addAttribute("citas", citas);
+		
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

@@ -94,7 +94,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 			<a th:href="@{'/Menu/'+${#request.userPrincipal.principal.getId}}" ><i class="fas fa-desktop"></i><span>My account</span></a>
 			
-			<a href="#"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
+			<a th:href="@{/login}"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
 		</div>
 		
 

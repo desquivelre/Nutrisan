@@ -17,7 +17,8 @@
 	rel="stylesheet"
 	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
 	crossorigin="anonymous">
-<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/appoimentDetailsStylee.css}">
+
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 <script
@@ -28,7 +29,8 @@
 
 <body>
 	
-	<input type="checkbox" id="check">
+
+<input type="checkbox" id="check">
 
 		<!--header area start-->
 
@@ -39,7 +41,7 @@
 				   <img
 					th:src="@{/img/logo.png}" alt="" width="60" height="60"> <a
 					class="navbar-brand d-flex align-items-center"
-					style="margin-left: 20px;" href="#"> Nutrisan </a>
+					style="margin-left: 20px;" href="#"> Doctor </a>
 
 
 				<button class="navbar-toggler" type="button"
@@ -86,37 +88,32 @@
 		<div class="sidebar">
 			<center>
 				<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
-				<h4>TakemichiGOD</h4>
+				<h4>DoctorGOD</h4>
 			</center>
 
 
-			<a th:href="@{'/inicio' + '/myaccount'}"><i class="fas fa-desktop"></i><span>My account</span></a>
-			<a href="#"><i class="fas fa-cogs"></i><span>Book an appointment</span></a>
+			<a href="#"><i class="fas fa-desktop"></i><span>My account</span></a>
+			<a th:href="@{/appoimentlist}"><i class="fas fa-cogs"></i><span>Appointment list</span></a>
 			<a href="#"><i class="fas fa-table"></i><span>My appointments</span></a>
+			<a th:href="@{'/schedule'}"><i class="fas fa-th"></i><span>Choose a schedule</span></a>  
+			<a th:href="@{'/inicio' + '/myaccount'}"><i class="fas fa-th"></i><span>Change account</span></a>  
 			<a href="#"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
 		</div>
-		
+	
 
 		<div class="content">
-			<div class="izquierda">
-				<div class="iarriba">
-					<img alt="" th:src="@{/img/logo.png}">
-				</div>
-				<div class="iabajo">Nutrisan</div>
-			</div>
 			
-			<div class="derecha">
-				<div class="darriba">
-					<div class ="com">"</div> 
-						We offer you customized nutritional help analazing corporal composition, life style, needs, in order to get the best treatment
-					
-					<div class ="com">"</div> 
-					</div>
-				<div class="dabajo">
-					<button type="button" class="btn btn-success"
-					style="background-color: #756969 ">Consult a nutritionist</button>
-				</div>
-			</div>
+			<div th:text="'Problem report detail: '+${problemas.problemaId}" class="Title"></div>
+			</br>
+			<div class="RecommendationTitle">Reason: </div>
+			<div class="RecommendationInfo" th:text="${problemas.tipo}"></div>
+			
+			<div class="RecommendationTitle">Details: </div>
+			<div class="RecommendationInfo" th:text="${problemas.texto}"></div>
+			
+			<div class="RecommendationTitle">Answer: </div>
+			<div class="RecommendationInfo" th:text="${problemas.respuesta}"></div>
+			
 		</div>
 	
 </body>

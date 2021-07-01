@@ -49,9 +49,9 @@ public class PacienteController {
 	private HorarioService horarioService;
 	
 	@Autowired
-<<<<<<< Updated upstream
 	private ComentarioService comentarioService;
-=======
+
+	@Autowired
 	private CasadeEstudiosService casadeEstudiosService;
 	
 	@Autowired
@@ -59,7 +59,7 @@ public class PacienteController {
 	
 	@Autowired
 	private GradoAcademicoService gradoAcademicoService;
->>>>>>> Stashed changes
+
 	
 	
 
@@ -131,6 +131,10 @@ public class PacienteController {
 		
 		try {
 			
+			List<Nutricionista> nutricionistas = nutricionistaService.getAll();
+			model.addAttribute("nutricionistas", nutricionistas);
+			
+			
 			Optional<Nutricionista> nutricionista = nutricionistaService.findById(dni_1);
 			
 			List<Horario> horarios = horarioService.filterByDNI_Libre(dni_1);
@@ -147,14 +151,17 @@ public class PacienteController {
 			int cantidad = 0;
 			int puntuacion_total = 0;
 			
-			for (Citas citas2 : citas) {
-				if(citas2.getHorario().getNutricionista().getDni() == nutricionista.get().getDni()) {
-				//	puntuacion_total = puntuacion_total + citas2.getPuntacion;
-					cantidad++;
-				}
-			}
+		///	for (Citas citas2 : citas) {
+			//	if(citas2.getHorario().getNutricionista().getDni() == nutricionista.get().getDni()) {
+			///		puntuacion_total = puntuacion_total + citas2.getPuntuacion();
+			//		cantidad++;
+			//	}
+			//}
 			
-			//puntuacion = puntuacion_total / cantidad;
+		//	if( cantidad > 0) {
+			//	puntuacion = puntuacion_total / cantidad;
+			//}
+			
 			//puntuacion = (puntuacion / 5) * 100;
 			
 			//nutricionista.get().setPuntuacion(puntuacion);
@@ -164,12 +171,15 @@ public class PacienteController {
 				model.addAttribute("paciente", paciente.get());
 				
 				if(nutricionista.isPresent()) {
+					
 					model.addAttribute("nutricionista", nutricionista.get());
 					model.addAttribute("cita", cita_new);
 					
 					return "paciente/pacientSelectSchedule.html";
 				}
 			}
+			
+			
 			
 			
 			
@@ -182,13 +192,18 @@ public class PacienteController {
 		return "redirect:/inicio";
 	}
 	
+	
+	
 	@GetMapping("/myappointments/{id}") 
     public String response_3(Model model, @PathVariable("id")Integer id) {
 		
 		
         try {      	
+        	Optional<Paciente> paciente = pacienteService.findById(id);
+        	
         	List<Citas> citas = citasService.filterById(id);
             model.addAttribute("citas", citas);
+            model.addAttribute("paciente", paciente.get());
         } catch (Exception e) {
 
             e.printStackTrace();
@@ -198,10 +213,12 @@ public class PacienteController {
         return "paciente/pacientAppointments.html";
     }
 	
-	@GetMapping("{id}/appointmentDetail")
-	public String response_4(Model model, @PathVariable("id")Integer id) {
+	@GetMapping("{id}/appointmentDetail/{id_paciente}")
+	public String response_4(Model model, @PathVariable("id")Integer id, @PathVariable("id_paciente")Integer id_paciente) {
 		 
 		try {
+			Optional<Paciente> paciente = pacienteService.findById(id_paciente);
+			
 			Optional<Citas> citas = citasService.findById(id);
 		
 			
@@ -221,6 +238,7 @@ public class PacienteController {
 	                model.addAttribute("comentarios", comentarios);
 	                
 	                model.addAttribute("nuevocomentario", nuevocomentario);
+	                model.addAttribute("paciente", paciente.get());
 	                
 	                return "paciente/pacientAppointmentDetail.html";
 	            }
@@ -259,37 +277,29 @@ public class PacienteController {
 		return "redirect:/inicio";
 	}
 	
-	@PostMapping("/savecomentario/{id}")	
-	public String saveEdit(Model model, @ModelAttribute("nuevocomentario") Comentario nuevocomentario, @PathVariable("id") Integer id) {
-		try {
-<<<<<<< Updated upstream
-			
-			Optional<Citas> citas = citasService.findById(id);
-			
-			List<Comentario>numComentarios=comentarioService.getAll();
-		
-			nuevocomentario.setComentarioId(numComentarios.size()+1);
-			nuevocomentario.setPaciente(citas.get().getPaciente());
-			nuevocomentario.setNutricionista(citas.get().getHorario().getNutricionista());
-			
-			Comentario comentarioReturn = comentarioService.create(nuevocomentario);
-			
-			return "redirect:/inicio/"+citas.get().getCita_id()+"/appointmentDetail"; 
-=======
-			Nutricionista nutricionistaReturn = nutricionistaService.update(nutricionista);
-			model.addAttribute("nutricionistaReturn", nutricionistaReturn);			
-			
-			
-			return "paciente/pacientAppointmentDetail.html"; 
->>>>>>> Stashed changes
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-		
-		
-		return "redirect:/inicio";
-	}
+	@PostMapping("/savecomentario/{id}")
+    public String saveEdit(Model model, @ModelAttribute("nuevocomentario") Comentario nuevocomentario, @PathVariable("id") Integer id) {
+        try {
+
+            Optional<Citas> citas = citasService.findById(id);
+
+            List<Comentario>numComentarios=comentarioService.getAll();
+
+            nuevocomentario.setComentarioId(numComentarios.size()+1);
+            nuevocomentario.setPaciente(citas.get().getPaciente());
+            nuevocomentario.setNutricionista(citas.get().getHorario().getNutricionista());
+
+            Comentario comentarioReturn = comentarioService.create(nuevocomentario);
+
+            return "redirect:/inicio/"+citas.get().getCita_id()+"/appointmentDetail"; 
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+
+
+        return "redirect:/inicio";
+    }
 	
 	
 	@GetMapping("{horario_id}/save_cita/{paciente_dni}")
@@ -315,7 +325,10 @@ public class PacienteController {
 					cita_new.setCita_id(citas.size()+1);
 					cita_new.setAsunto(null);
 					cita_new.setFecha(horario.get().getHora_inicio());
+					
 					cita_new.setLink(null);
+					
+					
 					cita_new.setRecomendacion(null);
 					cita_new.setHorario(horario.get());
 					cita_new.setPaciente(paciente.get());
@@ -400,10 +413,21 @@ public class PacienteController {
 	public String update(Model model, @ModelAttribute("paciente") Paciente paciente) {
 		try {
 			Paciente pacienteUpdate = pacienteService.update(paciente);
+			return "redirect:/inicio/myaccount/" + paciente.getDni();
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+	        System.err.println(e.getMessage());
 		}
-		return "redirect:/";
+		
+		System.out.println(paciente.getDni());
+		System.out.println(paciente.getApellido());
+		System.out.println(paciente.getEmail());
+		System.out.println(paciente.getHabilitado());
+		System.out.println(paciente.getNombre());
+		System.out.println(paciente.getPassword());
+		System.out.println(paciente.getUsername());
+		
+		return "redirect:/inicio/myaccount/" + paciente.getDni();
 	}
 	
 }

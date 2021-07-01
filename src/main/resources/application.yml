@@ -9,7 +9,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/Nutrisan
     username: postgres
-    password: Megamanx_232
+    password: "#Roarfe19"
     
   jpa:
     database: postgresql

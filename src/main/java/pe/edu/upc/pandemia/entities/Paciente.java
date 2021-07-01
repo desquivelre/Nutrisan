@@ -61,20 +61,18 @@ public class Paciente {
 	@OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY)
     private List<Comentario> comentario;
 
+	@OneToMany(mappedBy = "pacienteId", fetch = FetchType.LAZY)
+    private List<Problema> problema;
 
-	
-	
 	public Paciente() {
 		super();
-
-	
+		// TODO Auto-generated constructor stub
 	}
-
 
 	public Paciente(@NotNull @Range(min = 10000000, max = 99999999) Integer dni, @NotEmpty String username,
 			@NotEmpty String password, String nombre, String apellido, String email, int habilitado,
-			List<Citas> citas, List<HistorialPlan> historialPlan,
-			List<Comentario> comentario) {
+			List<pe.edu.upc.pandemia.entities.Citas> citas, List<HistorialPlan> historialPlan,
+			List<Comentario> comentario, List<Problema> problema) {
 		super();
 		this.dni = dni;
 		this.username = username;
@@ -83,123 +81,99 @@ public class Paciente {
 		this.apellido = apellido;
 		this.email = email;
 		this.habilitado = habilitado;
-		this.Citas = citas;
+		Citas = citas;
 		this.historialPlan = historialPlan;
 		this.comentario = comentario;
-
-
+		this.problema = problema;
 	}
-
 
 	public Integer getDni() {
 		return dni;
 	}
 
-
 	public void setDni(Integer dni) {
 		this.dni = dni;
 	}
-
 
 	public String getUsername() {
 		return username;
 	}
 
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 
 	public String getPassword() {
 		return password;
 	}
 
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 
 	public String getNombre() {
 		return nombre;
 	}
 
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 
 	public String getApellido() {
 		return apellido;
 	}
 
-
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-
 
 	public String getEmail() {
 		return email;
 	}
 
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 
 	public int getHabilitado() {
 		return habilitado;
 	}
 
-
 	public void setHabilitado(int habilitado) {
 		this.habilitado = habilitado;
 	}
-
 
 	public List<Citas> getCitas() {
 		return Citas;
 	}
 
-
 	public void setCitas(List<Citas> citas) {
 		Citas = citas;
 	}
-
 
 	public List<HistorialPlan> getHistorialPlan() {
 		return historialPlan;
 	}
 
-
 	public void setHistorialPlan(List<HistorialPlan> historialPlan) {
 		this.historialPlan = historialPlan;
 	}
-
 
 	public List<Comentario> getComentario() {
 		return comentario;
 	}
 
-
 	public void setComentario(List<Comentario> comentario) {
 		this.comentario = comentario;
 	}
 
+	public List<Problema> getProblema() {
+		return problema;
+	}
 
-
-
-
-	
-	
-
-
-
-	
+	public void setProblema(List<Problema> problema) {
+		this.problema = problema;
+	}
 	
 	
 	

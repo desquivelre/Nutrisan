@@ -93,10 +93,8 @@
 
 			<a th:href="@{'/inicio' + '/myaccount'}"></i><span>My account</span></a>
 			<a th:href="@{'/inicio/' + ${paciente.dni} + '/list'}"><i class="fas fa-cogs"></i><span>Book an appointment</span></a>
-			<a href="#"><i class="fas fa-table"></i><span>My appointments</span></a>
-			<a href="#"><i class="fas fa-th"></i><span>Choose a plan</span></a>  
-			<a th:href="@{ '/nutricionist'}"><i class="fas fa-th"></i><span>Change account</span></a>  
-			<a href="#"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
+		    <a th:href="@{'/inicio' + '/myappointments/' + ${paciente.dni}}"><i class="fas fa-table"></i><span>My appointments</span></a>
+			<a th:href="@{/login}"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
 		</div>
 		
 
@@ -113,24 +111,25 @@
 								
 							</div>
 							<div class="update_input">
-<<<<<<< Updated upstream
+
 								 <input type="text" class="form-control" placeholder="" th:field="*{email}">
 								 <input type="text" class="form-control" placeholder="" th:field="*{dni}" hidden="true">
-=======
-								 <input type="text" class="form-control" placeholder="" th:field=*{email}>
+
+
 								 
 								 <input type="text" class="form-control" placeholder="" th:field="*{dni}", hidden="true">
 								 <input type="text" class="form-control" placeholder="" th:field="*{nombre}", hidden="true">
 								 <input type="text" class="form-control" placeholder="" th:field="*{apellido}", hidden="true">
 								 <input type="text" class="form-control" placeholder="" th:field="*{habilitado}", hidden="true">
 								 <input type="text" class="form-control" placeholder="" th:field="*{password}", hidden="true">
+								 <input type="text" class="form-control" placeholder="" th:field="*{username}", hidden="true">
 								 
->>>>>>> Stashed changes
+
 							</div>
 					</div>
 						
 						<div class="botones">
-							<a th:href="@{'/inicio' + '/myaccount'}">
+							<a th:href="@{'/inicio' + '/myaccount/' + ${paciente.dni}}">
 								<button type="button" class="btn btn-danger" >Cancel</button>
 							</a>
 							

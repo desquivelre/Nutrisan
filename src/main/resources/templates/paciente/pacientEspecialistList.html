@@ -90,16 +90,14 @@
 		<div class="sidebar">
 			<center>
 				<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
-				<h4 th:text="${paciente.nombre}"></h4>
+				<h4 th:text="${paciente.username}"></h4>
 			</center>
 
 
-			<a th:href="@{'/inicio' + '/myaccount'}" ><i class="fas fa-desktop"></i><span>My account</span></a>
-			<a href="@{'/inicio' + '/list'}"><i class="fas fa-cogs"></i><span>Book an appointment</span></a>
-			<a href="#"><i class="fas fa-table"></i><span>My appointments</span></a>
-			<a href="#"><i class="fas fa-th"></i><span>Choose a plan</span></a>  
-			<a href="#"><i class="fas fa-th"></i><span>Change account</span></a>  
-			<a href="#"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
+			<a th:href="@{'/inicio' + '/myaccount/'+${paciente.dni}}"></i><span>My account</span></a>
+			<a th:href="@{'/inicio/' + ${paciente.dni} + '/list'}"><i class="fas fa-cogs"></i><span>Book an appointment</span></a>
+			<a th:href="@{'/inicio' + '/myappointments/' + ${paciente.dni}}"><i class="fas fa-table"></i><span>My appointments</span></a>
+			<a th:href="@{/login}"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
 		</div>
 		
 
@@ -190,9 +188,9 @@
                    				
                    				<div class="pel_datos">
                     				<div th:text="'DNI: ' + ${nutricionista.dni}" class="card-title"></div>
-                        			<div th:text="'Cellphone number: ' + ${nutricionista.numTelefono}" class="card-title"></div>
+                  
                         			<div th:text="'Score: ' + ${nutricionista.puntuacion}" class="card-title"></div>
-                        			<a th:href="@{'/inicio/' + ${nutricionista.dni} +'/select/' + ${paciente.dni} }" class="btn btn-primary">Select</a>
+                        			<a th:href="@{'/inicio/' + ${nutricionista.dni} +'/select/' + ${paciente.dni}}" class="btn btn-primary">Select</a>
                    				</div>
                         		
                     		</div>

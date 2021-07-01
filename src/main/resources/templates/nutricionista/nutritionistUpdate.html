@@ -89,13 +89,10 @@
 		</center>
 
 
-		<a href="#"><i class="fas fa-desktop"></i><span>My account</span></a>
-		<a th:href="@{/appoimentlist}"><i class="fas fa-cogs"></i><span>Appointment
-				list</span></a> <a href="#"><i class="fas fa-table"></i><span>My
-				appointments</span></a> <a th:href="@{'/nutricionist/'+${nutricionista.dni}+'/schedules'}"><i class="fas fa-th"></i><span>See
-				schedules</span></a> <a th:href="@{'/inicio' + '/myaccount'}"><i
-			class="fas fa-th"></i><span>Change account</span></a> <a href="#"><i
-			class="fas fa-sliders-h"></i><span>Log out</span></a>
+		<a th:href="@{'/Menu/' + ${nutricionista.dni}}"></i><span>My account</span></a>
+		<a th:href="@{'/appoimentlist/' + ${nutricionista.dni}}"><i class="fas fa-cogs"></i><span>Appointment list</span></a> 
+		<a th:href="@{'/nutricionist/'+${nutricionista.dni}+'/schedules'}"><i class="fas fa-th"></i><span>See schedules</span></a>
+		<a th:href="@{/login}""><i class="fas fa-sliders-h"></i><span>Log out</span></a>
 	</div>
 
 
