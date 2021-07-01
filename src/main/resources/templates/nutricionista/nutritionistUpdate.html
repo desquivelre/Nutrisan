@@ -101,7 +101,7 @@
 
 	<div class="content">
 
-		<form th:action="@{/nutricionist/update}" th:object="${nutricionista}"
+		<form th:action="@{'/nutricionist/update/'+${nutricionista.dni}}" th:object="${nutricionista}"
 			, method="post">
 			<div class="marco">
 				<div class="update">
@@ -115,9 +115,10 @@
 					</div>
 					<div class="update_input">
 						<input type="text" class="form-control" placeholder=""
-							th:field="*{email}"> <input type="text"
+							th:field="*{email}"> <!--<input type="text"
 							class="form-control" placeholder="" th:field="*{dni}"
 							hidden="true">
+							
 							<input type="text"
 							class="form-control" placeholder="" th:field="*{nombre}"
 							hidden="true">
@@ -133,8 +134,12 @@
 							<input type="text"
 							class="form-control" placeholder="" th:field="*{puntuacion}"
 							hidden="true">
+							<input type="text"
+							class="form-control" placeholder="" th:field="*{username}"
+							hidden="true">
+							-->
 					</div>
-			
+							
 				</div>
 
 				<div class="botones">

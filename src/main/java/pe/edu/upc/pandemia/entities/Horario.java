@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "Horario")
-@SequenceGenerator(name = "getHorario", initialValue = 18, allocationSize = 1)
+@SequenceGenerator(name = "getHorario", initialValue = 1, allocationSize = 1)
 public class Horario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "getHorario")
