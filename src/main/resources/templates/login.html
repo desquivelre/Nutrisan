@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="https://www.thymeleaf.org/"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async
+	src="https://www.googletagmanager.com/gtag/js?id=G-GNJJMF8KL8"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GNJJMF8KL8');
+    </script>
+<meta charset="utf-8">
+<title>Log in</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="/css/stylelogin.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+	crossorigin="anonymous"></script>
+</head>
+
+<body>
+	
+	<input type="checkbox" id="check">
+
+		<!--header area start-->
+
+		<nav class="navbar navbar-expand-lg navbar-dark sticky-top"
+			style="background-color: #07A46F;" >
+			<div class="container-fluid d-flex align-items-center">
+
+				   <img
+					src="img/logo.png" alt="" width="60" height="60"> <a
+					class="navbar-brand d-flex align-items-center"
+					style="margin-left: 20px;" href="#"> Velapp </a>
+
+
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+					aria-controls="navbarNavDropdown" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse d-flex align-items-center"
+					id="navbarNavDropdown">
+
+					<ul class="navbar-nav ms-auto flex-nowrap"
+						style="margin-right: 400px;">
+
+							
+					
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+	
+		<!--header area end-->
+		<!--sidebar start-->
+
+		<div class="content">
+			<h4>Iniciar sesión</h4>
+			<form th:action="@{/signin}" method="post">
+			
+			<input class="controls" type="text" name="username" id="username" placeholder="Ingrese su Usuario">
+			<input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña">
+
+
+			<p>¿Es tu primera vez? <a th:href="@{/auth/registro}">Registrate aqui</a></p>
+			
+
+
+
+				<input class="botons" type="submit" value="Entrar" >
+			
+		
+			</form>
+		</div>
+	
+</body>
+
+</html>

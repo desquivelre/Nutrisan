@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" xmlns:th="https://www.thymeleaf.org/">
+<html lang="en" dir="ltr" xmlns:th="https://www.thymeleaf.org/"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async
@@ -86,15 +87,13 @@
 		<div class="sidebar">
 			<center>
 				<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
-				<h4>TakemichiGOD</h4>
+				<h4><span sec:authentication="name" >Username</span></h4>
+				
 			</center>
 
 
-			<a th:href="@{'/inicio' + '/myaccount'}" ><i class="fas fa-desktop"></i><span>My account</span></a>
-			<a th:href="@{'/inicio' + '/list'}"><i class="fas fa-cogs"></i><span>Book an appointment</span></a>
-			<a th:href="@{'/inicio' + '/myappointments'}"><i class="fas fa-table"></i><span>My appointments</span></a>
-			<a th:href="@{/plans}"><i class="fas fa-th"></i><span>Choose a plan</span></a>
-			<a th:href="@{ '/nutricionist'}"><i class="fas fa-th"></i><span>Change account</span></a>  
+			<a th:href="@{'/Menu/'+${#request.userPrincipal.principal.getId}}" ><i class="fas fa-desktop"></i><span>My account</span></a>
+			
 			<a href="#"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
 		</div>
 		
@@ -114,10 +113,7 @@
 					
 					<div class ="com">"</div> 
 					</div>
-				<div class="dabajo">
-					<button type="button" class="btn btn-success"
-					style="background-color: #756969 ">Consult a nutritionist</button>
-				</div>
+				
 			</div>
 		</div>
 	

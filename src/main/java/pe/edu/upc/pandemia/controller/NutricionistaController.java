@@ -27,19 +27,19 @@ public class NutricionistaController {
 	@Autowired
 	private HorarioService horarioService;
 
-    @GetMapping()
-    public String response(Model model) {
-    	try {
-    		Optional<Nutricionista> nutricionista = nutricionistaService.findById(12345678);
-    		if(nutricionista.isPresent()) {
-    			model.addAttribute("nutricionista", nutricionista.get());
-    			return "nutricionista/doctorAccount.html";
-    		}
-    		
-    	}catch (Exception e) {
-    		e.printStackTrace();
-    		System.err.println(e.getMessage());
-    	}
+	@GetMapping("{id}")
+    public String response(Model model , @PathVariable("id") Integer id ) {
+        try {
+            Optional<Nutricionista> nutricionista = nutricionistaService.findById(id);
+            if(nutricionista.isPresent()) {
+                model.addAttribute("nutricionista", nutricionista.get());
+                return "nutricionista/doctorAccount.html";
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
     	
     	
     	return "redirect:/inicio";

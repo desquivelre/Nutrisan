@@ -59,21 +59,23 @@ public class PacienteController {
 	}
 
 	
-	@GetMapping("/myaccount")
-	public String response_2(Model model) {
-		try {
-			Optional<Paciente> paciente = pacienteService.findById(78038327);
-			if(paciente.isPresent()) {
-				model.addAttribute("paciente", paciente.get());
-				return "paciente/pacientAccount.html"; // Archivo Html
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.err.println(e.getMessage());
-		}
-		
-		return "redirect:/inicio";
-	}
+	@GetMapping("/myaccount/{id}")
+    public String response_2(Model model,@PathVariable("id")Integer id) {
+        try {
+
+            Optional<Paciente> paciente = pacienteService.findById(id);
+            if(paciente.isPresent()) {
+                model.addAttribute("paciente", paciente.get());
+                return "paciente/pacientAccount.html"; // Archivo Html
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+
+        return "redirect:/inicio";
+    }
+	
 
 	@GetMapping("{dni}/list")
 	public String response_Especialist_List(Model model, @PathVariable("dni") Integer dni) {
@@ -126,12 +128,12 @@ public class PacienteController {
 		return "redirect:/inicio";
 	}
 	
-	@GetMapping("/myappointments") 
-    public String response_3(Model model) {
+	@GetMapping("/myappointments/{id}") 
+    public String response_3(Model model, @PathVariable("id")Integer id) {
 		
 		
         try {      	
-        	List<Citas> citas = citasService.filterById(79976993);
+        	List<Citas> citas = citasService.filterById(id);
             model.addAttribute("citas", citas);
         } catch (Exception e) {
 
