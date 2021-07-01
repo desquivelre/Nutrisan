@@ -51,13 +51,16 @@ public class Citas {
 	@Column(name = "link", length = 255, nullable = true)
 	private String link;
 
+	@Column(name = "puntuacion", length = 255, nullable = true)
+	private Integer puntuacion;
+
 	public Citas() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public Citas(Integer cita_id, Paciente paciente, Date fecha, String recomendacion, Horario horario, String asunto,
-			String link) {
+			String link, Integer puntuacion) {
 		super();
 		this.cita_id = cita_id;
 		this.paciente = paciente;
@@ -66,6 +69,7 @@ public class Citas {
 		this.horario = horario;
 		this.asunto = asunto;
 		this.link = link;
+		this.puntuacion = puntuacion;
 	}
 
 	public Integer getCita_id() {
@@ -123,5 +127,17 @@ public class Citas {
 	public void setLink(String link) {
 		this.link = link;
 	}
+
+	public Integer getPuntuacion() {
+		return puntuacion;
+	}
+
+	public void setPuntuacion(Integer puntuacion) {
+		this.puntuacion = puntuacion;
+	}
+
+	
+	
+	
 	
 }

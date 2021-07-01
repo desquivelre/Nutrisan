@@ -178,7 +178,7 @@
 				
 				<img th:src="@{/img/nutricionista.jpg}" class="profile_image" alt="">
 				
-				<div th:text="'Score: '+${citas.horario.nutricionista.puntuacion}"></div>
+				<div th:text="'Score: '+${citas.puntuacion}"></div>
 				
 			
 
@@ -186,14 +186,7 @@
 					    <div class="row">
 					        
 					            <div class="stars">
-					                <form th:object="${nutricionistamodificar}" th:action="@{/inicio/save/}+${citas.cita_id}", method="post"> 
-					                	<input type="text" class="form-control" placeholder="" th:field=*{dni} hidden="true">
-					                	<input type="text" class="form-control" placeholder="" th:field=*{nombre} hidden="true">
-					                	<input type="text" class="form-control" placeholder="" th:field=*{apellido} hidden="true">
-					                	<input type="text" class="form-control" placeholder="" th:field=*{password} hidden="true">
-					                	<input type="text" class="form-control" placeholder="" th:field=*{numTelefono} hidden="true">
-					                	<input type="text" class="form-control" placeholder="" th:field=*{email} hidden="true">
-					                	<input type="text" class="form-control" placeholder="" th:field=*{habilitado} hidden="true">
+					                <form th:object="${citasmodificar}" th:action="@{/inicio/save/}+${citas.cita_id}", method="post"> 
 					                	
 					                	<input class="star star-5" id="star-5" type="radio" name="star" th:field="*{puntuacion}" value="5"/> <label class="star star-5" for="star-5"></label> 
                                         <input class="star star-4" id="star-4" type="radio" name="star" th:field="*{puntuacion}" value="4"/> <label class="star star-4" for="star-4"></label>

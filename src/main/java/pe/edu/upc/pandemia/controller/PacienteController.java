@@ -147,6 +147,7 @@ public class PacienteController {
 		 
 		try {
 			Optional<Citas> citas = citasService.findById(id);
+		
 			
 			int codigonutricionista = citas.get().getHorario().getNutricionista().getDni();		
 			List<Comentario>comentarios= comentarioService.filterbycita(codigonutricionista);
@@ -156,10 +157,10 @@ public class PacienteController {
 			 if(citas.isPresent()) {
 				 
 				    
-					Optional<Nutricionista> nutricionistamodificar = nutricionistaService.findById(codigonutricionista);
+					Optional<Citas> citasmodificar= citasService.findById(id);
 					Comentario nuevocomentario = new Comentario();
 					
-					model.addAttribute("nutricionistamodificar", nutricionistamodificar);
+					model.addAttribute("citasmodificar", citasmodificar);
 	                model.addAttribute("citas", citas.get());
 	                model.addAttribute("comentarios", comentarios);
 	                
@@ -176,12 +177,22 @@ public class PacienteController {
 	}
 	
 	@PostMapping("/save/{id}")	
-	public String saveEdit(Model model, @ModelAttribute("nutricionistamodificar") Nutricionista nutricionistamodificar, @ModelAttribute("nuevocomentario") Comentario nuevocomentario, @PathVariable("id") Integer id) {
+	public String saveEdit(Model model, @ModelAttribute("citasmodificar") Citas citasmodificar, @ModelAttribute("nuevocomentario") Comentario nuevocomentario, @PathVariable("id") Integer id) {
 		try {
 			
 			Optional<Citas> citas = citasService.findById(id);
-			Nutricionista nutricionistamodificado = nutricionistaService.update(nutricionistamodificar); 
 			
+			citasmodificar.setCita_id(citas.get().getCita_id());
+			citasmodificar.setFecha(citas.get().getFecha());
+			citasmodificar.setAsunto(citas.get().getAsunto());
+			citasmodificar.setHorario(citas.get().getHorario());
+			citasmodificar.setLink(citas.get().getLink());
+			citasmodificar.setPaciente(citas.get().getPaciente());
+			citasmodificar.setRecomendacion(citas.get().getRecomendacion());
+			
+			Citas citasmodificado = citasService.update(citasmodificar); 
+			
+					
 			return "redirect:/inicio/"+citas.get().getCita_id()+"/appointmentDetail"; 
 		} catch (Exception e) {
 			e.printStackTrace();
