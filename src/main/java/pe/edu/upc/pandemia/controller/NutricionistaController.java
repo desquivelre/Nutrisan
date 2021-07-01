@@ -111,14 +111,25 @@ public class NutricionistaController {
 		return "nutricionista/nutritionistUpdate.html";
 	}
 	
-	@PostMapping("update")
-	public String update(Model model, @ModelAttribute("nutricionista") Nutricionista nutricionista) {
+	@PostMapping("update/{dni}")
+	public String update(Model model, @ModelAttribute("nutricionista") Nutricionista nutricionista,@PathVariable("dni") Integer dni) {
 		try {
+			Optional<Nutricionista> nutricionistaEdit=nutricionistaService.findById(dni);
+			nutricionista.setDni(nutricionistaEdit.get().getDni());
+			nutricionista.setHabilitado(nutricionistaEdit.get().getHabilitado());
+			nutricionista.setPuntuacion(nutricionistaEdit.get().getPuntuacion());
+			nutricionista.setApellido(nutricionistaEdit.get().getApellido());
+			nutricionista.setNombre(nutricionistaEdit.get().getNombre());
+			nutricionista.setPassword(nutricionistaEdit.get().getPassword());
+			nutricionista.setUsername(nutricionistaEdit.get().getUsername());
+			nutricionista.setComentario(nutricionistaEdit.get().getComentario());
+			nutricionista.setCurriculums(nutricionistaEdit.get().getCurriculums());
+			nutricionista.setHorarios(nutricionistaEdit.get().getHorarios());
 			Nutricionista nutricionistaUpdate = nutricionistaService.update(nutricionista);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return "redirect:/nutricionist";
+		return "redirect:/nutricionist/"+nutricionista.getDni();
 	}     
 	
 	
