@@ -11,7 +11,7 @@
       gtag('config', 'G-GNJJMF8KL8');
     </script>
 <meta charset="utf-8">
-<title>My appointments</title>
+<title>Sidebar Dashboard Template</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -87,14 +87,16 @@
 		<div class="sidebar">
 			<center>
 				<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
-				<div><h3 th:text="${nutricionista.username}"></h3></div>>
+				<h4>DoctorGOD</h4>
 			</center>
 
 
-			<a th:href="@{'/Menu/' + ${nutricionista.dni}}"></i><span>My account</span></a>
-			<a th:href="@{'/appoimentlist/' + ${nutricionista.dni}}"><i class="fas fa-cogs"></i><span>Appointment list</span></a> 
-			<a th:href="@{'/nutricionist/'+${nutricionista.dni}+'/schedules'}"><i class="fas fa-th"></i><span>See schedules</span></a>
-			<a th:href="@{/login}"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
+			<a th:href="@{/nutricionist}"><i class="fas fa-desktop"></i><span>My account</span></a>
+			<a href="#"><i class="fas fa-cogs"></i><span>Appointment list</span></a>
+			<a href="#"><i class="fas fa-table"></i><span>My appointments</span></a>
+			<a th:href="@{'/nutricionist/'+${dni}+'/schedules'}"><i class="fas fa-th"></i><span>See schedules</span></a>  
+			<a th:href="@{'/inicio' + '/myaccount'}"><i class="fas fa-th"></i><span>Change account</span></a>  
+			<a href="#"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
 		</div>
 		
 		<div class="content">
@@ -117,6 +119,7 @@
        					    <li th:text="' Pacient DNI: '+${cita.paciente.dni}"></li>				
 					   		<li th:text="' Pacient name: '+' '+${cita.paciente.nombre}+' '+${cita.paciente.apellido}"></li>
 					   		<li th:text="' Appointment Date: '+${cita.fecha}"></li>
+					   		 <span th:if="${cita.link==null} " class="form-text text-danger" style="font-weight: 600;" >Falta link</span>
 					   	</ul>	
                         
                         <a th:href="@{'/appoimentlist/'+${cita.cita_id}+'/appoimentDetails'}" class="fas fa-arrow-alt-circle-right fa-2x" id="ver"></a>

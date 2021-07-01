@@ -88,27 +88,50 @@
 		<div class="sidebar">
 			<center>
 				<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
-				<h3 th:text="${citas.horario.nutricionista.username}"></h3>
+				<h4>DoctorGOD</h4>
 			</center>
 
 
-			<a th:href="@{'/Menu/' + ${citas.horario.nutricionista.dni}}"></i><span>My account</span></a>
-			<a th:href="@{'/appoimentlist/' + ${citas.horario.nutricionista.dni}}"><i class="fas fa-cogs"></i><span>Appointment list</span></a> 
-			<a th:href="@{'/nutricionist/'+${citas.horario.nutricionista.dni}+'/schedules'}"><i class="fas fa-th"></i><span>See schedules</span></a>
-			<a th:href="@{/login}"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
+			<a th:href="@{/nutricionist}"><i class="fas fa-desktop"></i><span>My account</span></a>
+			<a th:href="@{/appoimentlist}"><i class="fas fa-cogs"></i><span>Appointment list</span></a>
+			<a href="#"><i class="fas fa-table"></i><span>My appointments</span></a>
+			<a th:href="@{'/nutricionist/'+${dni}+'/schedules'}"><i class="fas fa-th"></i><span>See schedules</span></a>  
+			<a th:href="@{'/inicio' + '/myaccount'}"><i class="fas fa-th"></i><span>Change account</span></a>  
+			<a href="#"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
 		</div>
 	
 
 		<div class="content">
 			
 			<div th:text="'Appointment '+${citas.cita_id}" class="Title"></div>
-			<div class="Title-info">
+				<div class="Title-info">
 				<div th:text="${citas.asunto}" class="Title-info-asunto"></div>
-				<a href="url" th:text="${citas.link}" class="Title-info-link"></a>
+				<div class="linktext">Appointment link:
+				
+		<div class="Title-info-link">
+			<form th:action="@{/appoimentlist/saveLink}" th:object="${citas}"
+				method="post">
+				<div class="input-group mb-3">
+					<input type="text" class="form-control"
+						placeholder="Ingrese el link de la cita"
+						aria-label="Recipient's username" th:field="*{link}"
+						aria-describedby="button-addon2">
+					<button class="btn btn-outline-secondary" type="submit"
+						id="button-addon2">Submit</button>
+				</div>
+			</form>
+		</div>
+				
+				
+					</div>
+			
 				
 			</div>
-			
-			<p class="border"></p>
+
+
+
+
+		<p class="border"></p>
 			
 			<div class="Pacient">
 				<div class="PacientDetail">
@@ -123,18 +146,62 @@
 				</div>
 				<img th:src="@{/img/paciente.jpg}" class="profile_image" alt="">
 			</div>
-			
-			<p class="border"></p>
-			
-			<div class="RecommendationTitle">Recommendations: </div>
-			<div class="RecommendationInfo" th:text="${citas.recomendacion}"></div>
-			
-		<form th:action="@{/appoimentlist/save}" th:object="${citas}" method="post">
-			<div class="input-group mb-3">
-		  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" th:field="*{recomendacion}" aria-describedby="button-addon2">
-		  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Submit</button>
+
+		<p class="border"></p>
+		<div class="Recomendacion">
+			<div class="RecomendacionDetail">
+				<div class="RecomendationTitle">Recommendations:</div>
+				<div class="RecomendationInfo">
+					<ul>
+						
+
+
+					</ul>
+
+
+
+
+				</div>
+				<div class="RecomendationImput">
+					<form th:action="@{/appoimentlist/save}" th:object="${citas}"
+						method="post">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control"
+								placeholder="Ingrese una recomendacion"
+								aria-label="Recipient's username" th:field="*{recomendacion}"
+								aria-describedby="button-addon2">
+							<button class="btn btn-outline-secondary" type="submit"
+								id="button-addon2">Submit</button>
+						</div>
+				</div>
+
+
+
+			</div>
+
+
+
 		</div>
+
+
+
+
+
+
+
+
+		<div class=recomendacion>
+			
+			
+			
+	
+	
+		
+		
+		
+		
 		</form>	
+		</div>
 		<p class="border" style="margin-top: 40px;"></p>
 			
 			<div class="AttachedFilesTitle">Attached files:</div>

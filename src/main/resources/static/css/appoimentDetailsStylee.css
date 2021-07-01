@@ -150,6 +150,7 @@ label #sidebar_btn:hover{
   background: url("") no-repeat;
   background-position: center;
   background-size: cover;
+  height:100vh;
   
   transition: 0.5s;
   display: flex;
@@ -184,17 +185,37 @@ label #sidebar_btn:hover{
 	font-weight: bold;
 	font-size: 20px;
 }
+.linktext{
+	font-weight: 500;
+	font-size: 15px;
+	margin-left: 400px;
+	color:#07A46F;
+
+
+
+}
 
 .Title-info-link{
-	
-	margin-left: 550px;
-	font-weight: normal;
+		font-weight: normal;
 	font-size: 15px;
 	
 	color: #707070;
 	text-decoration: none;
 }
+.recomendacion{
+	
+	display: flex;
+	flex-direction: row;
+}
+.RecomendationTitle{
+	margin-left: 10px;
+	font-weight: bold;
+}
+.RecomendacionDetail{
+	margin-right: 350px;
+		padding: 40px;
 
+}
 .Pacient{
 	
 	display: flex;

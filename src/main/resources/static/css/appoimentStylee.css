@@ -152,6 +152,8 @@ label #sidebar_btn:hover{
   background:url("https://cdn.discordapp.com/attachments/700043017263775846/854938866518458368/doctor-with-medical-mask-background-banner-vector.jpg");
   background-position: center;
   background-size: cover;
+    height:100vh;
+  
   transition: 0.5s;
   display: flex;
   flex-direction: column;
