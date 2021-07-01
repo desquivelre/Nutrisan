@@ -89,8 +89,8 @@
 		</center>
 
 
-		<a href="#"><i class="fas fa-desktop"></i><span>My account</span></a>
-		<a href="#"><i class="fas fa-cogs"></i><span>List</span></a> <a
+		<a th:href="@{/nutricionist}"><i class="fas fa-desktop"></i><span>My account</span></a>
+		<a href="#"><i class="fas fa-cogs"></i><span>Appointment list</span></a> <a
 			href="#"><i class="fas fa-table"></i><span>My appointments</span></a>
 		<a th:href="@{'/nutricionist/'+${dni}+'/schedules'}"><i class="fas fa-th"></i><span>See schedules</span></a>
 		<a th:href="@{'/inicio' + '/myaccount'}"><i class="fas fa-th"></i><span>Change
@@ -117,8 +117,8 @@
 						<label for="hora_inicio" class="form-label">Start Time</label> <input
 							type="datetime" class="form-control" name="example-text-input"
 							th:field="*{hora_inicio}" placeholder="2021/06/30 8:00:00">
-						<input type="text" class="form-control" th:field="*{id}">
-						<input type="text" class="form-control" th:field="*{nutricionista}">
+						
+						<input type="text" class="form-control" th:field="*{nutricionista}" hidden="true">
 					</div>
 					<div class="form-group">
 						<label for="hora_fin" class="form-label">End Time</label> <input

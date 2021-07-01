@@ -84,14 +84,14 @@
 	<div class="sidebar">
 		<center>
 			<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
-			<h4>Nutritionist</h4>
+			<h4 th:text="${nutricionista.nombre}"></h4>
 		</center>
 
 
-		<a href="#"><i class="fas fa-desktop"></i><span>My account</span></a>
-		<a href="#"><i class="fas fa-cogs"></i><span>List</span></a> <a
+		<a th:href="@{/nutricionist}"><i class="fas fa-desktop"></i><span>My account</span></a>
+		<a href="#"><i class="fas fa-cogs"></i><span>Appointment list</span></a> <a
 			href="#"><i class="fas fa-table"></i><span>My appointments</span></a>
-		<a href="#"><i class="fas fa-th"></i><span>Schedule</span></a> <a
+		<a href="#"><i class="fas fa-th"></i><span>See schedules</span></a> <a
 			th:href="@{'/inicio' + '/myaccount'}"><i class="fas fa-th"></i><span>Change
 				account</span></a> <a href="#"><i class="fas fa-sliders-h"></i><span>Log
 				out</span></a>
