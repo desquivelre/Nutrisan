@@ -267,7 +267,7 @@ public class PacienteController {
 			Citas citasmodificado = citasService.update(citasmodificar); 
 			
 					
-			return "redirect:/inicio/"+citas.get().getCita_id()+"/appointmentDetail"; 
+			return "redirect:/inicio/"+citas.get().getCita_id()+"/appointmentDetail/"+citas.get().getPaciente().getDni(); 
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -291,7 +291,7 @@ public class PacienteController {
 
             Comentario comentarioReturn = comentarioService.create(nuevocomentario);
 
-            return "redirect:/inicio/"+citas.get().getCita_id()+"/appointmentDetail"; 
+            return "redirect:/inicio/"+citas.get().getCita_id()+"/appointmentDetail/"+citas.get().getPaciente().getDni(); 
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getMessage());
