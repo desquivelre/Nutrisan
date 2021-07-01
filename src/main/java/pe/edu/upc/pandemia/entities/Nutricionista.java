@@ -46,9 +46,6 @@ public class Nutricionista {
 	private String apellido;	
 
 
-	@Column(name = "numTelefono", length = 9, nullable = false)
-	private Integer numTelefono;
-
 	@Column(name = "email", length = 50, nullable = false)
 	private String email;
 
@@ -80,7 +77,7 @@ public class Nutricionista {
 
 
 	public Nutricionista(@NotNull @Range(min = 10000000, max = 99999999) Integer dni, @NotEmpty String username,
-			@NotEmpty String password, String nombre, String apellido, Integer numTelefono, String email,
+			@NotEmpty String password, String nombre, String apellido,  String email,
 			int puntuacion, int habilitado, List<Curriculum> curriculums, List<Horario> horarios,
 			List<Comentario> comentario) {
 		super();
@@ -89,7 +86,7 @@ public class Nutricionista {
 		this.password = password;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.numTelefono = numTelefono;
+	
 		this.email = email;
 		this.puntuacion = puntuacion;
 		this.habilitado = habilitado;
@@ -150,15 +147,7 @@ public class Nutricionista {
 	}
 
 
-	public Integer getNumTelefono() {
-		return numTelefono;
-	}
-
-
-	public void setNumTelefono(Integer numTelefono) {
-		this.numTelefono = numTelefono;
-	}
-
+	
 
 	public String getEmail() {
 		return email;
