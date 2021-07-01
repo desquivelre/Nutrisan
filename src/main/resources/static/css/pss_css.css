@@ -170,12 +170,22 @@ label #sidebar_btn:hover{
 .pss_arriba{
 	display: flex;
 	flex-direction: row; 
+	border-style: solid;;
+	border-color: #707070;
+	border-width: 3px;
+	border-radius: 15px;
+	width: 70%;
 }
 .pss_cali{
 	width: 30%;
+	margin-right: 10px;
 }
 .pss_arriba{
 	margin: 30px;
+}
+.profile{
+	margin-left: 20px;
+	width: 25%;
 }
 .profile img{
 
@@ -187,8 +197,61 @@ label #sidebar_btn:hover{
 }
 .pss_datos{
 	padding-left: 25px;
+	width: 40%;
 }
 
 .card{
 	margin-bottom: 20px;
 }
+
+.btn.btn-primary{
+	background-color: #07A46F;
+	border-color: #07A46F;
+	
+}
+.btn.btn-primary:hover {
+	background-color: #707070;
+	border-color: #707070;
+}
+.pss_arriba_2{
+	margin-top: 10px;
+	display: flex;
+	flex-direction: row; 
+	width: 100%;
+}
+
+.datos_div{
+	display: flex;
+	flex-direction: row;
+}
+.datos_texto{
+	width: 50%;
+}
+
+.card-header{
+	background-color: #707070;
+	color: white;
+}
+
+.btn.btn-primary{
+	background-color: #07A46F;
+	border-color: #07A46F;
+	margin-left: 85px;
+	
+}
+.btn.btn-primary:hover {
+	background-color: #707070;
+	border-color: #707070;
+}
+.pss_horarios{
+	display: flex;
+	flex-direction: row;
+}
+
+.card{
+	border-color:  #707070;
+	border-width: 3px;
+	border-radius: 10px;
+	margin-left: 25px;
+}
+

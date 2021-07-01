@@ -113,13 +113,27 @@
 								
 							</div>
 							<div class="update_input">
+<<<<<<< Updated upstream
 								 <input type="text" class="form-control" placeholder="" th:field="*{email}">
 								 <input type="text" class="form-control" placeholder="" th:field="*{dni}" hidden="true">
+=======
+								 <input type="text" class="form-control" placeholder="" th:field=*{email}>
+								 
+								 <input type="text" class="form-control" placeholder="" th:field="*{dni}", hidden="true">
+								 <input type="text" class="form-control" placeholder="" th:field="*{nombre}", hidden="true">
+								 <input type="text" class="form-control" placeholder="" th:field="*{apellido}", hidden="true">
+								 <input type="text" class="form-control" placeholder="" th:field="*{habilitado}", hidden="true">
+								 <input type="text" class="form-control" placeholder="" th:field="*{password}", hidden="true">
+								 
+>>>>>>> Stashed changes
 							</div>
 					</div>
 						
 						<div class="botones">
-							<button type="button" class="btn btn-danger">Cancel</button>
+							<a th:href="@{'/inicio' + '/myaccount'}">
+								<button type="button" class="btn btn-danger" >Cancel</button>
+							</a>
+							
 							<button type="submit" class="btn btn-primary">Save changes</button>
 							
 						</div>			

@@ -45,5 +45,55 @@ public class Curriculum {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Curriculum(Integer id, Nutricionista nutricionista, Especialidad especialidad, GradoAcademico gradoAcademico,
+			CasaDeEstudios casaDeEstudios) {
+		super();
+		this.id = id;
+		this.nutricionista = nutricionista;
+		this.especialidad = especialidad;
+		this.gradoAcademico = gradoAcademico;
+		this.casaDeEstudios = casaDeEstudios;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Nutricionista getNutricionista() {
+		return nutricionista;
+	}
+
+	public void setNutricionista(Nutricionista nutricionista) {
+		this.nutricionista = nutricionista;
+	}
+
+	public Especialidad getEspecialidad() {
+		return especialidad;
+	}
+
+	public void setEspecialidad(Especialidad especialidad) {
+		this.especialidad = especialidad;
+	}
+
+	public GradoAcademico getGradoAcademico() {
+		return gradoAcademico;
+	}
+
+	public void setGradoAcademico(GradoAcademico gradoAcademico) {
+		this.gradoAcademico = gradoAcademico;
+	}
+
+	public CasaDeEstudios getCasaDeEstudios() {
+		return casaDeEstudios;
+	}
+
+	public void setCasaDeEstudios(CasaDeEstudios casaDeEstudios) {
+		this.casaDeEstudios = casaDeEstudios;
+	}
+
 	
 }

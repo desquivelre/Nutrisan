@@ -167,81 +167,93 @@ label #sidebar_btn:hover{
   display: none;
 }
 
-
-.pa_opcion{
-	padding-left: 50px;
-	align-items: center;
-	vertical-align: middle;
-	
-}
-.pa_opcion_icono{
-	align-items: center;
-	padding-left: 10px;
-}
-
-
-.pa_1_imagen img{
-    width: 150px;
-    height: 150px;
-    border-radius: 150px;
-    margin-bottom: 10px;
-}
-.pa_arriba{
+.pss_arriba{
 	display: flex;
-	flex-direction: row;
+	flex-direction: row; 
+	border-style: solid;;
+	border-color: #707070;
+	border-width: 3px;
+	border-radius: 15px;
+	width: 70%;
+}
+.pss_cali{
+	width: 30%;
+	margin-right: 10px;
+}
+.pss_arriba{
+	margin: 30px;
+}
+.profile{
+	margin-left: 20px;
+	width: 25%;
+}
+.profile img{
+
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  margin-bottom: 10px;
+
+}
+.pss_datos{
+	padding-left: 25px;
+	width: 40%;
+}
+
+.card{
 	margin-bottom: 20px;
 }
 
-.pa_abajo{
+.btn.btn-primary{
+	background-color: #07A46F;
+	border-color: #07A46F;
+	
+}
+.btn.btn-primary:hover {
+	background-color: #707070;
+	border-color: #707070;
+}
+
+.card-header{
+	background-color: #707070;
+	color: white;
+}
+
+.btn.btn-primary{
+	background-color: #07A46F;
+	border-color: #07A46F;
+	margin-left: 85px;
+	
+}
+.btn.btn-primary:hover {
+	background-color: #707070;
+	border-color: #707070;
+}
+
+
+.datos_cita{
 	display: flex;
 	flex-direction: row;
-}
-.pa_abajo{
-	margin: 15px;
+	margin-top: 10px;
 }
 
-.pa_opcion_icono{
-	margin: 30px;
-	width: 40px;
-	height: 40px;
-	margin-bottom: 50px;
-}
-.pa_button{
-	padding: 30px;
-	margin: 30px;
-	text-align: center;
-}
-button{
-	text-align: center;
+.texto{
+	width: 50%;
+	margin-left: 10px;
+	
 }
 
 
-.marco{
+.pc_abajo{
 	border-style: solid;
 	border-color:  #707070;
 	border-width: 3px;
 	border-radius: 15px;
-	display: flex;
-	flex-direction: row;
-
 }
 
-.pa_1_imagen{
-	width: 40%;
-	margin-top: 20px;
-	margin-left: 10px;
+.boton{
+	margin-left: 100px;
+	margin-bottom: 25px;
 }
 
-.pa_1_datos{
-	width: 60%;
-	margin-top: 20px;
-}
 
-.botones{
-	margin-top: 20px;
-	margin-right: 10px;
-}
-
-.btn{
-	margin-top: 25px;
-}

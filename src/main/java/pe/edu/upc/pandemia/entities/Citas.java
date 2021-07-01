@@ -20,11 +20,9 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "Citas",
 		indexes = {@Index(columnList = "paciente_id", name="citas_index_paciente_id")})
-@SequenceGenerator(name = "getCitas", initialValue = 1, allocationSize = 1)
 public class Citas {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "getCitas")
 	@Column(name = "id", columnDefinition = "NUMERIC(10)", nullable = false)
 	private Integer cita_id;
 

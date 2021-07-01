@@ -81,7 +81,7 @@
 			</div>
 		</nav>
 		<br>
-		<br>
+		
 		<br>
 		<br>
 		<!--header area end-->
@@ -105,24 +105,59 @@
 
 		<div class="content">
 		
+			<br>
+			<div class="titulo">
+				<h2>Select an schedule</h2>
+			</div>
+			
 			<div class="pss_arriba">
-				<div class="profile">
-					<img alt="" th:src="@{/img/prota.jpg}">
+			
+				<div class="pss_arriba_2">
+				
+					<div class="profile">
+						<img alt="" th:src="@{/img/prota.jpg}">
+					</div>
+					
+					<div class="pss_datos">
+					
+						<div class="datos_div">
+							<div class="datos_texto">Full name: </div>
+							<div class="pss_datos_1" th:text="${nutricionista.nombre} + ' ' + ${nutricionista.apellido}"></div>
+						</div>
+						
+						<div class="datos_div">
+							<div class="datos_texto">DNI:</div>
+							<div class="pss_datos_1" th:text="${nutricionista.dni}"></div>
+						</div>
+						
+						<div class="datos_div">
+							<div class="datos_texto">Cell number: </div>
+							<div class="pss_datos_1" th:text="${nutricionista.numTelefono}"></div>
+						</div>
+						
+						<div class="datos_div">
+							<div class="datos_texto">Email: </div>
+							<div class="pss_datos_1" th:text="${nutricionista.email}"></div>
+						</div>
+						
+						
+						
+					</div>
+					
+					<div class="pss_cali">
+						<div class="datos_texto">Score: </div>
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped" role="progressbar" th:style="'width:'+ ${nutricionista.puntuacion}+'%;'" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
 				</div>
 				
-				<div class="pss_datos">
-					<div class="pss_datos_1" th:text="'Nombre completo: ' + ${nutricionista.nombre} + ' ' + ${nutricionista.apellido}"></div>
-					<div class="pss_datos_1" th:text="'DNI: ' + ${nutricionista.dni}"></div>
 				</div>
-				<div class="pss_cali">
-					<div class="progress">
-  						<div class="progress-bar" role="progressbar" aria-valuenow="5" aria-valuemin="5" aria-valuemax="10"></div>
-					</div>
-				</div>
+				
+				
 			</div>
 			
 			<div class ="pss_horarios">
-			
+				<p class="card-text" th:text="'ID de cita:    ' + ${cita.cita_id}", hidden="true"></p>
 				<div class="card" th:each = "horario : ${horarios} " th:action="@{/inicio/assign}" th:object="${citaNew}">
   					<div class="card-header" th:text="'Horario N°: ' + ${horario.id}">
     					
@@ -130,8 +165,13 @@
   					<div class="card-body">
     					<p class="card-text" th:text="'Fecha de inicio: ' + ${horario.hora_inicio}"></p>
     					<p class="card-text" th:text="'Fecha de fin:    ' + ${horario.hora_inicio}"></p>
-						<a th:href="@{'/inicio/' + ${horario.id} + '/save/' + ${paciente.dni} }" class="btn btn-primary"  role="button" style="background-color:#07A46F ">Select</a>
-  
+    					
+    					
+    					
+    					<div class="boton" allign="center">
+    						<a th:href="@{'/inicio/' + ${horario.id} + '/save_cita/' + ${paciente.dni} }" class="btn btn-primary"  role="button">Select</a>
+    					</div>
+						  
   					</div>
 				</div>
 			</div>

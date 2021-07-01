@@ -105,11 +105,10 @@
 
 		<div class="content">
 		
-		
+			<br>
+			<br>
 			<div class ="titulo">
-			<br>
-			<br>
-				<h2>Especialist List</h2>
+				<div th:text="'Nutritionist who have ' + ${grado.Nombre} + ' as degree'"></div>
 			</div>
 			
 			<div class="pel_core">
@@ -179,7 +178,7 @@
 				<div class ="lists">
 				
 					<div class="Cards">
-                		<div th:each="nutricionista: ${nutricionistas}" class="card">
+                		<div th:each="nutricionista: ${nutricionistas_filtrados}" class="card">
                     		<div th:text="${nutricionista.nombre} + ' ' + ${nutricionista.apellido} " class="card-header">
                     		</div>
                    			<div class="card-body">

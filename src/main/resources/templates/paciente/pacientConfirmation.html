@@ -17,7 +17,7 @@
 	rel="stylesheet"
 	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
 	crossorigin="anonymous">
-<link rel="stylesheet" th:href="@{/css/pss_css.css}">
+<link rel="stylesheet" th:href="@{/css/Confirmation.css}">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 <script
@@ -83,7 +83,6 @@
 		<br>
 		<br>
 		<br>
-		<br>
 		<!--header area end-->
 		<!--sidebar start-->
 
@@ -107,10 +106,65 @@
 		
 			<div class ="titulo">
 				<h2> Congratulations!</h2>
+				<br>
+				<h3>Your appointment has been created successfully!</h3>
 			</div>
+			<br>
+			
 			<div class ="pc_abajo">
+			
+				<div class="datos_cita">
+					<div class="texto">
+						<h4>Appointment ID: </h4>
+					</div>
+					<div class="cita_input">
+						<input type="text" th:placeholder="${cita.cita_id}" disabled="disabled">
+					</div>
+				</div>
 				
-			</div>
+				<div class="datos_cita">
+					<div class="texto">
+						<h4>Your appointment date: </h4>
+					</div>
+					<div class="cita_input">
+						<input type="text"  th:placeholder="${cita.fecha}" disabled="disabled">
+					</div>
+				</div>
+				
+				<div class="datos_cita">
+					<div class="texto">
+						<h4>Your nutritionist's name: </h4>
+					</div>
+					<div class="cita_input">
+						<input type="text" th:placeholder="${horario.nutricionista.nombre} + ' ' + ${horario.nutricionista.apellido}" disabled="disabled">
+					</div>
+				</div>
+				
+				<div class="datos_cita">
+					<div class="texto">
+						<h4>Nutritionits' email: </h4>
+					</div>
+					<div class="cita_input">
+						<input type="text"  th:placeholder="${horario.nutricionista.email}" disabled="disabled">
+					</div>
+				</div>
+				
+				
+				
+				
+				<div class="datos_cita">
+					<div class="texto">
+						<h4>Your appointment link: </h4>
+					</div>
+					<div class="cita_input">
+						<input type="text" placeholder="Soon available" disabled="disabled">
+					</div>
+				</div>
+				
+				<div class="boton">
+					<a th:href="@{'/inicio/' + '/myaccount'}" class="btn btn-primary"  role="button">Select</a>
+				</div>
+		</div>
 			
 			
 			

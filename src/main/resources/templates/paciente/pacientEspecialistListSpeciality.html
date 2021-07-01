@@ -39,7 +39,7 @@
 				   <img
 					th:src="@{/img/logo.png}" alt="" width="60" height="60"> <a
 					class="navbar-brand d-flex align-items-center"
-					style="margin-left: 20px;" href="#"> Our especialists </a>
+					style="margin-left: 20px;" href="#"> Nutrisan </a>
 
 
 				<button class="navbar-toggler" type="button"
@@ -104,12 +104,11 @@
 		
 
 		<div class="content">
-		
+			<br>
+			<br>
 		
 			<div class ="titulo">
-			<br>
-			<br>
-				<h2>Especialist List</h2>
+				<div th:text="'Experts at '+ ${especialidad.Nombre}"></div>
 			</div>
 			
 			<div class="pel_core">
@@ -179,7 +178,7 @@
 				<div class ="lists">
 				
 					<div class="Cards">
-                		<div th:each="nutricionista: ${nutricionistas}" class="card">
+                		<div th:each="nutricionista: ${nutricionistas_filtrados}" class="card">
                     		<div th:text="${nutricionista.nombre} + ' ' + ${nutricionista.apellido} " class="card-header">
                     		</div>
                    			<div class="card-body">

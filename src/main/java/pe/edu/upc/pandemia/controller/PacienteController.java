@@ -13,15 +13,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import pe.edu.upc.pandemia.entities.CasaDeEstudios;
 import pe.edu.upc.pandemia.entities.Citas;
 import pe.edu.upc.pandemia.entities.Comentario;
 import pe.edu.upc.pandemia.entities.Curriculum;
+import pe.edu.upc.pandemia.entities.Especialidad;
+import pe.edu.upc.pandemia.entities.GradoAcademico;
 import pe.edu.upc.pandemia.entities.Horario;
 import pe.edu.upc.pandemia.entities.Nutricionista;
 import pe.edu.upc.pandemia.entities.Paciente;
+import pe.edu.upc.pandemia.service.crud.CasadeEstudiosService;
 import pe.edu.upc.pandemia.service.crud.CitasService;
 import pe.edu.upc.pandemia.service.crud.ComentarioService;
 import pe.edu.upc.pandemia.service.crud.CurriculumService;
+import pe.edu.upc.pandemia.service.crud.EspecialidadService;
+import pe.edu.upc.pandemia.service.crud.GradoAcademicoService;
 import pe.edu.upc.pandemia.service.crud.HorarioService;
 import pe.edu.upc.pandemia.service.crud.NutricionistaService;
 import pe.edu.upc.pandemia.service.crud.PacienteService;
@@ -43,7 +49,17 @@ public class PacienteController {
 	private HorarioService horarioService;
 	
 	@Autowired
+<<<<<<< Updated upstream
 	private ComentarioService comentarioService;
+=======
+	private CasadeEstudiosService casadeEstudiosService;
+	
+	@Autowired
+	private EspecialidadService especialidadService;
+	
+	@Autowired
+	private GradoAcademicoService gradoAcademicoService;
+>>>>>>> Stashed changes
 	
 	
 
@@ -51,7 +67,7 @@ public class PacienteController {
 	public String response() {
 		return "/index.html";
 	}
-	
+
 	@GetMapping("/news")
 	public String news(){
 		
@@ -77,6 +93,9 @@ public class PacienteController {
     }
 	
 
+	//listar los especialistas 
+	
+	
 	@GetMapping("{dni}/list")
 	public String response_Especialist_List(Model model, @PathVariable("dni") Integer dni) {
 		try {
@@ -86,7 +105,15 @@ public class PacienteController {
 				model.addAttribute("paciente", paciente.get());
 				
 				List<Nutricionista> nutricionistas = nutricionistaService.getAll();
+				
+				List<CasaDeEstudios> casas = casadeEstudiosService.getAll();
+				List<GradoAcademico> grados = gradoAcademicoService.getAll();
+				List<Especialidad> especialidades = especialidadService.getAll();
+				
 				model.addAttribute("nutricionistas", nutricionistas);
+				model.addAttribute("casas", casas);
+				model.addAttribute("grados", grados);
+				model.addAttribute("especialidades", especialidades);
 				
 				return "paciente/pacientEspecialistList.html"; 
 			}
@@ -100,6 +127,8 @@ public class PacienteController {
 
 	@GetMapping("{dni_1}/select/{dni}")
 	public String response_Select(Model model, @PathVariable("dni_1") Integer dni_1, @PathVariable("dni") Integer dni) {
+		
+		
 		try {
 			
 			Optional<Nutricionista> nutricionista = nutricionistaService.findById(dni_1);
@@ -109,12 +138,35 @@ public class PacienteController {
 			
 			Optional<Paciente> paciente = pacienteService.findById(dni);
 			
+			List<Citas> citas = citasService.getAll();
+			
+			Citas cita_new = new Citas();
+			cita_new.setCita_id(citas.size()+1);
+			
+			int puntuacion = 0;
+			int cantidad = 0;
+			int puntuacion_total = 0;
+			
+			for (Citas citas2 : citas) {
+				if(citas2.getHorario().getNutricionista().getDni() == nutricionista.get().getDni()) {
+				//	puntuacion_total = puntuacion_total + citas2.getPuntacion;
+					cantidad++;
+				}
+			}
+			
+			//puntuacion = puntuacion_total / cantidad;
+			//puntuacion = (puntuacion / 5) * 100;
+			
+			//nutricionista.get().setPuntuacion(puntuacion);
+			
 			
 			if(paciente.isPresent()) {
 				model.addAttribute("paciente", paciente.get());
 				
 				if(nutricionista.isPresent()) {
 					model.addAttribute("nutricionista", nutricionista.get());
+					model.addAttribute("cita", cita_new);
+					
 					return "paciente/pacientSelectSchedule.html";
 				}
 			}
@@ -125,6 +177,8 @@ public class PacienteController {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
+		
+		
 		return "redirect:/inicio";
 	}
 	
@@ -208,6 +262,7 @@ public class PacienteController {
 	@PostMapping("/savecomentario/{id}")	
 	public String saveEdit(Model model, @ModelAttribute("nuevocomentario") Comentario nuevocomentario, @PathVariable("id") Integer id) {
 		try {
+<<<<<<< Updated upstream
 			
 			Optional<Citas> citas = citasService.findById(id);
 			
@@ -220,6 +275,13 @@ public class PacienteController {
 			Comentario comentarioReturn = comentarioService.create(nuevocomentario);
 			
 			return "redirect:/inicio/"+citas.get().getCita_id()+"/appointmentDetail"; 
+=======
+			Nutricionista nutricionistaReturn = nutricionistaService.update(nutricionista);
+			model.addAttribute("nutricionistaReturn", nutricionistaReturn);			
+			
+			
+			return "paciente/pacientAppointmentDetail.html"; 
+>>>>>>> Stashed changes
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println(e.getMessage());
@@ -241,7 +303,26 @@ public class PacienteController {
 				model.addAttribute("paciente", paciente.get());
 								
 				if(paciente.isPresent()) {
+					
+					
 					model.addAttribute("horario", horario.get());
+					
+					//Here you should create the appointment
+					
+					List<Citas> citas = citasService.getAll();
+					
+					Citas cita_new = new Citas();
+					cita_new.setCita_id(citas.size()+1);
+					cita_new.setAsunto(null);
+					cita_new.setFecha(horario.get().getHora_inicio());
+					cita_new.setLink(null);
+					cita_new.setRecomendacion(null);
+					cita_new.setHorario(horario.get());
+					cita_new.setPaciente(paciente.get());
+					
+					Citas cita_creada = citasService.create(cita_new);
+					
+					model.addAttribute("cita", cita_new);
 					
 					return "paciente/pacientConfirmation.html";
 				}
@@ -251,6 +332,7 @@ public class PacienteController {
 	         System.err.println(e.getMessage());
 		}
 	
+		
 		
 		return "redirect:/inicio";
 	}

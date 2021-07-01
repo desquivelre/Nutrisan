@@ -102,23 +102,26 @@
 
 		<div class="content">
 		
-			<div class = "pa_1">
-			
+			<div class = "titulo">
 				<h2>My account</h2>
+				<br>
 			</div>
-			
-			<div class = "pa_arriba">
-				<div class= "pa_1_imagen">
-					
-					<img alt="" th:src="@{/img/prota.jpg}">
-					
-				</div>
-				<div class= "pa_1_datos">
 				
-					<div class="pa_datos" th:text="'DNI: ' + ${paciente.dni}"></div>
-					<div class="pa_datos" th:text="'Especialist name: '+ ${paciente.nombre} + ' '+${paciente.apellido}">DNI:  </div>
-					<div class="pa_datos" th:text="'Email: ' +  ${paciente.email}">	</div>
-					<br>
+			<div class="marco">
+							
+			
+					<div class= "pa_1_imagen">
+						<img alt="" th:src="@{/img/prota.jpg}">
+					</div>
+					
+					<div class= "pa_1_datos">
+						<div class="pa_datos" th:text="'DNI: ' + ${paciente.dni}"></div>
+						<div class="pa_datos" th:text="'Especialist name: '+ ${paciente.nombre} + ' '+${paciente.apellido}">DNI:  </div>
+						<div class="pa_datos" th:text="'Email: ' +  ${paciente.email}">	</div>
+						<br>
+						
+					</div>
+					
 					<div class="botones">
 						<a th:href="@{${paciente.dni} + '/actualizar'}">
 							<button type="button" class="btn btn-success">Update my data</button>
@@ -126,37 +129,13 @@
 						<a th:href="@{${paciente.dni} + '/actualizar'}">
 							<button type="button" class="btn btn-danger">Delete my account</button>
 						</a>
+					</div>
 				
-					</div>
-					
-					
-				</div>
 			</div>
 			
 			
-			<div class= "pa_abajo">
-				<div class ="pa_opcion">
-					<div class ="pa_opcion_icono">
-						<i class="fas fa-history fa-4x"></i>
-					</div>
-					<div class ="pa_boton">
-						<button type="button" class="btn btn-success">Appointment history</button>
-					</div>
-				</div>
-				<div class ="pa_opcion">
-					<div class ="pa_opcion_icono">
-						<i class="far fa-newspaper fa-4x"></i>
-					</div>
-				</div>
-				<div class ="pa_opcion">
-					<div class ="pa_opcion_icono">
-						<i class="fas fa-user-md fa-4x"></i>
-					</div>
-					<div class ="pa_boton">
-						<button type="button" class="btn btn-success" >Book an appointment</button>
-					</div>
-				</div>
-			</div>
+		
+			
 			
 			
 		</div>

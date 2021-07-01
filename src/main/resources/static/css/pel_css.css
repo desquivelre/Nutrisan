@@ -171,9 +171,7 @@ label #sidebar_btn:hover{
 	display: flex;
 	flex-direction: row;
 }
-.pel_filter{
-	width: 40%;
-}
+
 .pel_filter_1{
 	align-items: center;
 }
@@ -199,10 +197,69 @@ label #sidebar_btn:hover{
 .pel_datos{
 	padding-left: 15px;
 }
-.pel_filter_1{
-	padding-bottom: 15px;
-}
+
 .card{
 	margin-bottom: 25px;
 }
 
+.pel_filter{
+	width: 40%;
+	
+}
+
+.subtitulo{
+	margin-left: 15px;
+}
+.pel_filter_1{
+	padding-bottom: 15px;
+	display: flex;;
+	flex-direction: row;
+	margin-left: 15px;
+}
+
+.titulo{
+	margin-top: 5px;
+}
+
+.pel_text{
+	width: 50%;
+}
+
+.btn.btn-primary{
+	background-color: #07A46F;
+	border-color: #07A46F;
+	margin-left: 35px;
+	
+}
+.btn.btn-primary:hover {
+	background-color: #707070;
+	border-color: #707070;
+}
+.card-header{
+	background-color: #707070;
+	color: white;
+		
+}
+.Cards{
+	margin-left: 15px;
+}
+
+.card{
+	border-color:  #707070;
+	border-width: 3px;
+	border-radius: 10px;
+}
+.titulo{
+	font-size: 25px;
+}
+
+.btn.btn-success{
+	background-color: #07A46F;
+	border-color: #07A46F;
+	margin-left: 150px;
+}
+
+.btn.btn-success:hover {
+	background-color: #707070;
+	border-color: #707070;
+}
