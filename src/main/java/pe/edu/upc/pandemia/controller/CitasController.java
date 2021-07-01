@@ -98,6 +98,22 @@ public class CitasController {
     	return "nutricionista/appoimentList.html";
     }
     
+    
+    @PostMapping("saveLink")
+    public String saveLink(Model model,@ModelAttribute("citas") Citas citas) {
+    
+    try {    
+     Citas citaReturn =citasService.update(citas);
+     model.addAttribute("citas", citaReturn);
+ 	return "nutricionista/appoimentDetails.html";
+    } catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		System.err.println(e.getMessage());
+	}
+    	return "nutricionista/appoimentList.html";
+    }
+    
 
     
 }
