@@ -4,7 +4,7 @@
   margin-right: 250px;
   background: url("/img/PacienteFondo.png") no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: cover;	
   height:100vh;
   transition: 0.5s;
   display: flex;
