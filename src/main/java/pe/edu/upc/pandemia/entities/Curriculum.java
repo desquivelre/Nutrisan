@@ -4,21 +4,24 @@ package pe.edu.upc.pandemia.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name="Curriculum")
+@SequenceGenerator(name = "getCurriculum", initialValue = 1, allocationSize = 1)
 public class Curriculum {
 
     @Id
-    @Column(name = "curriculum_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "getCurriculum")
+    @Column(name = "curriculum_id",columnDefinition = "NUMERIC(10)", nullable = false)
     private Integer id;
     
     @ManyToOne(fetch = FetchType.EAGER)
