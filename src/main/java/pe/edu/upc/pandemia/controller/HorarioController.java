@@ -60,12 +60,12 @@ public class HorarioController {
 		return "schedule/view.html";
 	}
 	
-	public static Date convertirhora(Timestamp stamp){
+	public static Date convertirhora(Date stamp){
 		Date newdate=new Date(stamp.getTime());
 	    return newdate;
 	  }
 	
-	public static Date convertirfecha(Timestamp stamp){
+	public static Date convertirfecha(Time stamp){
 		Time newtime=new Time(stamp.getTime());
 	    return newtime;
 	  }

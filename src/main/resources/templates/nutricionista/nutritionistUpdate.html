@@ -134,20 +134,14 @@
 							class="form-control" placeholder="" th:field="*{puntuacion}"
 							hidden="true">
 					</div>
-					<div class="update_texto">
-						<h5>New cellphone number:</h5>
-						<div class="update_input">
-							<input type="text" class="form-control" placeholder=""
-								th:field="*{numTelefono}">
-						</div>
-					</div>
+			
 				</div>
 
 				<div class="botones">
-					<a  th:href="@{'/nutricionist'}">
+					<a  th:href="@{'/nutricionist/'+${nutricionista.dni}}">
 						<button type="button" class="btn btn-danger">Cancel</button>
 					</a>	
-					<a  th:href="@{'/nutricionist'}">
+					<a  th:href="@{'/nutricionist/'+${nutricionista.dni}}">
 						<button type="submit" class="btn btn-primary">Save changes</button>
 					</a>
 				</div>

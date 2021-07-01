@@ -11,7 +11,7 @@
       gtag('config', 'G-GNJJMF8KL8');
     </script>
 <meta charset="utf-8">
-<title>Sidebar Dashboard Template</title>
+<title>View new schedule</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -89,43 +89,41 @@
 		</center>
 
 
-		<a th:href="@{/nutricionist}"><i class="fas fa-desktop"></i><span>My account</span></a>
-		<a href="#"><i class="fas fa-cogs"></i><span>Appointment list</span></a> <a
-			href="#"><i class="fas fa-table"></i><span>My appointments</span></a>
-		<a th:href="@{'/nutricionist/'+${nutricionista.dni}+'/schedules'}"><i class="fas fa-th"></i><span>See schedules</span></a>
-		<a th:href="@{'/inicio' + '/myaccount'}"><i class="fas fa-th"></i><span>Change
+		<a th:href="@{/nutricionist}"><i class="fas fa-desktop"></i><span>My
+				account</span></a> <a href="#"><i class="fas fa-cogs"></i><span>Appointment
+				list</span></a> <a href="#"><i class="fas fa-table"></i><span>My
+				appointments</span></a> <a
+			th:href="@{'/nutricionist/'+${nutricionista.dni}+'/schedules'}"><i
+			class="fas fa-th"></i><span>See schedules</span></a> <a
+			th:href="@{'/inicio' + '/myaccount'}"><i class="fas fa-th"></i><span>Change
 				account</span></a> <a href="#"><i class="fas fa-sliders-h"></i><span>Log
 				out</span></a>
 	</div>
 
 	<div class="content">
-		<div class="Cards">
-			<div class="card-header">View Schedule</div>
-			<div class="card-body">
-				<p>
-					Id: <span th:text="${horario.id}"></span> <br>
-					Date: <span th:text="${horario.fecha}"></span> <br>
-					Start Time: <span th:text="${horario.hora_inicio}"></span> <br> 
-					End Time: <span th:text="${horario.hora_fin}"></span> <br>
-				</p>
-
-				<a th:href="@{'/nutricionist/'+${nutricionista.dni}+'/schedules'}" class="btn btn-primary">Return</a>
+		<div class="Title">
+			<div class="Title-icon">
+				<i class="fas fa-eye fa-2x"></i>
+			</div>
+			<div class="Title-text">
+				<h3>View new schedule</h3>
 			</div>
 		</div>
-		<div class="form-popup" id="myForm">
-			<form action="/view" class="form-container">
-				<h1>Login</h1>
+		<div class="Card1">
+			<div class="card-header" th:text="'Schedule N° '+${horario.id}"></div>
+			<div class="card-body">
+				<p>
+					Date: <span
+						th:text="${horario.fecha}"></span> <br> Start Time: <span
+						th:text="${horario.hora_inicio}"></span> <br> End Time: <span
+						th:text="${horario.hora_fin}"></span> 
+				</p>
 
-				<label for="email"><b>Email</b></label> <input type="text"
-					placeholder="Enter Email" name="email" required> <label
-					for="psw"><b>Password</b></label> <input type="password"
-					placeholder="Enter Password" name="psw" required>
-
-				<button type="submit" class="btn">Login</button>
-				<button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
-			</form>
+				
+			</div>
 		</div>
-
+		<a th:href="@{'/nutricionist/'+${nutricionista.dni}+'/schedules'}"
+					class="btn btn-primary">Return</a>
 	</div>
 	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
 	<script th:src="@{/js/popper.min.js}"></script>

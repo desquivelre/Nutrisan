@@ -40,10 +40,7 @@ public class NutricionistaController {
             e.printStackTrace();
             System.err.println(e.getMessage());
         }
-    	
-    	
     	return "redirect:/inicio";
-    	
     }
     
     @GetMapping("{dni}/schedules")
@@ -121,7 +118,7 @@ public class NutricionistaController {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return "redirect:/";
+		return "redirect:/nutricionist";
 	}     
 	
 	

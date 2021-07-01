@@ -148,16 +148,17 @@ label #sidebar_btn:hover{
 
 /*
 .content{
-  margin-right: 200px;
-  background: url("https://image.freepik.com/vector-gratis/fondo-pantalla-frutas-verduras_52683-35620.jpg") no-repeat;
+  margin-right: 250px;
+  background: url("https://www.diariojuridico.com/wp-content/uploads/2021/01/legislacion-profesion-dietista-diario-juridico-.jpg") no-repeat;
   background-position: center;
   background-size: cover;
-  height: 125vh;
+  height:100%;
   transition: 0.5s;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 */
+
 
 .izquierda{
 	display: flex;
@@ -264,7 +265,7 @@ td input[type=checkbox]:checked{
 	width:100%;
 	height:120px;
 	background-color:gray;
-	/*background-image: url('');*/
+	background-image: url("https://cadenaser00.epimg.net/ser/imagenes/2021/04/05/gastro/1617611229_918898_1617612953_noticia_normal.jpg") no-repeat;
 }
 
 .index-news h3{
@@ -313,24 +314,54 @@ td input[type=checkbox]:checked{
 }
 
 .Cards{
-	width:60%;
-	margin: 30px;
-	margin-left: 200px;
+	width:40%;
+	margin: 25px;
+	margin-left: 15%;
+}
+
+.Card1{
+	width:30%;
+	margin: 25px;
+	margin-left: 10%;
+	border-style:solid;
+	border-radius: 5px;
+	border-color: #07A46F;
+	background: url("https://disruptivoo.com/wp-content/uploads/2020/09/Los-Mejores-21-Fondos-de-Pantalla-de-Color-Gris-Claro.jpg") no-repeat;
+	background-size: cover;
 }
 
 .card2{
-	width:60%;
+	width:50%;
 	margin: 20px;
-	margin-left: 150px;
+	margin-left: 25%;
+	border-style:solid;
+	border-radius: 10px;
+	border-color: #07A46F;
+}
+
+.btn.btn-primary{
+	background-color: #07A46F;
+	border-color: #07A46F;
+	margin-left: 10%;
+	width:10%;
 }
 
 .card{
+	border-style:solid;
+	border-radius: 5px;
+	border-color: #07A46F;
 	margin-bottom: 50px;
+	background: url("data:image/jpeg;base64,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") no-repeat;
+	background-size: cover;
 }
 
 .card-header{
 	background-color: #07A46F;
 	color: white;
+}
+
+.card-footer.text-right{
+	background-color:white;
 }
 
 #ver{
