@@ -111,13 +111,14 @@
 				schedule</a>
 		</div>
 
-		<div class="Cards">
+		<div class="Cards" >
 			<div th:each="horario: ${horarios}" class="card">
 				<div th:text="' Schedule '+${horario.id}" class="card-header">
 				</div>
 				<div class="card-body">
 					<ul>
-						<li th:text="'Start time: '+${horario.hora_inicio}"></li>
+						<li th:text="'Date: '+${horario.fecha}"></li>
+						<li><span th:text="'Start time: '+${horario.hora_inicio}"></span></li>
 						<li th:text="'End time: '+${horario.hora_fin}"></li>
 					</ul>
 				</div>

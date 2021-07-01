@@ -319,9 +319,9 @@ td input[type=checkbox]:checked{
 }
 
 .card2{
-	width:60%;
+	width:80%;
 	margin: 20px;
-	margin-left: 150px;
+	margin-left: 100px;
 }
 
 .card{
@@ -331,6 +331,7 @@ td input[type=checkbox]:checked{
 .card-header{
 	background-color: #07A46F;
 	color: white;
+	
 }
 
 #ver{

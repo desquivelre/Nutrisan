@@ -85,7 +85,7 @@
 	<div class="sidebar">
 		<center>
 			<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
-			<h4>TakemichiGOD</h4>
+			<h4 th:text="${nutricionista.nombre}"></h4>
 		</center>
 
 
@@ -103,7 +103,8 @@
 			<div class="card-header">View Schedule</div>
 			<div class="card-body">
 				<p>
-					Id: <span th:text="${horario.id}"></span> <br> 
+					Id: <span th:text="${horario.id}"></span> <br>
+					Date: <span th:text="${horario.fecha}"></span> <br>
 					Start Time: <span th:text="${horario.hora_inicio}"></span> <br> 
 					End Time: <span th:text="${horario.hora_fin}"></span> <br>
 				</p>

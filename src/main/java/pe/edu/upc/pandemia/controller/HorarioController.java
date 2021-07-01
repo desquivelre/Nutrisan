@@ -1,17 +1,16 @@
 package pe.edu.upc.pandemia.controller;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -60,5 +59,15 @@ public class HorarioController {
 		}
 		return "schedule/view.html";
 	}
+	
+	public static Date convertirhora(Timestamp stamp){
+		Date newdate=new Date(stamp.getTime());
+	    return newdate;
+	  }
+	
+	public static Date convertirfecha(Timestamp stamp){
+		Time newtime=new Time(stamp.getTime());
+	    return newtime;
+	  }
 
 }

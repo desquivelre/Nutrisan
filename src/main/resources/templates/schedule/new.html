@@ -85,7 +85,7 @@
 	<div class="sidebar">
 		<center>
 			<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
-			<h4>TakemichiGOD</h4>
+			<h4 th:text="${nutricionista.nombre}"></h4>
 		</center>
 
 
@@ -114,16 +114,22 @@
 			<div class="card-body">
 				<div class="col-md-8">
 					<div class="form-group">
-						<label for="hora_inicio" class="form-label">Start Time</label> <input
+						<label for="fecha" class="form-label">Date</label> <input
 							type="datetime" class="form-control" name="example-text-input"
-							th:field="*{hora_inicio}" placeholder="2021/06/30 8:00:00">
+							th:field="*{fecha}" placeholder="2021/07/02">
 						
 						<input type="text" class="form-control" th:field="*{nutricionista}" hidden="true">
 					</div>
 					<div class="form-group">
+						<label for="hora_inicio" class="form-label">Start Time</label> <input
+							type="datetime" class="form-control" name="example-text-input"
+							th:field="*{hora_inicio}" placeholder="8:00:00">
+					
+					</div>
+					<div class="form-group">
 						<label for="hora_fin" class="form-label">End Time</label> <input
 							type="datetime" class="form-control" name="example-text-input"
-							th:field="*{hora_fin}" placeholder="2021/06/30 24:00:00">
+							th:field="*{hora_fin}" placeholder="12:00:00">
 					</div>
 					<div class="card-footer text-right">
 						<a th:href="@{'/nutricionist/'+${dni}+'/schedules'}" class="btn btn-danger">Cancel</a>

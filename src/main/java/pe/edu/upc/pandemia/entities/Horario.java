@@ -1,5 +1,6 @@
 package pe.edu.upc.pandemia.entities;
 
+import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -30,11 +31,15 @@ public class Horario {
 	@JoinColumn(name = "nutricionista_dni", nullable = false)
 	private Nutricionista nutricionista;
 
+	@Column(name = "fecha")
+	@Temporal(TemporalType.DATE)
+	private Date fecha;
+	
 	@Column(name = "hora_inicio", nullable = false)
-	private Date hora_inicio;
+	private Time hora_inicio;
 
 	@Column(name = "hora_fin", nullable = false)
-	private Date hora_fin;
+	private Time hora_fin;
 
 	
 	@OneToMany(mappedBy = "horario", fetch = FetchType.LAZY)
@@ -45,14 +50,14 @@ public class Horario {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Horario(Integer id, Nutricionista nutricionista, Date hora_inicio, Date hora_fin, Integer reservado,
+	public Horario(Integer id, Nutricionista nutricionista, Date fecha, Time hora_inicio, Time hora_fin,
 			List<pe.edu.upc.pandemia.entities.Citas> citas) {
 		super();
 		this.id = id;
 		this.nutricionista = nutricionista;
+		this.fecha = fecha;
 		this.hora_inicio = hora_inicio;
 		this.hora_fin = hora_fin;
-		
 		Citas = citas;
 	}
 
@@ -72,22 +77,6 @@ public class Horario {
 		this.nutricionista = nutricionista;
 	}
 
-	public Date getHora_inicio() {
-		return hora_inicio;
-	}
-
-	public void setHora_inicio(Date hora_inicio) {
-		this.hora_inicio = hora_inicio;
-	}
-
-	public Date getHora_fin() {
-		return hora_fin;
-	}
-
-	public void setHora_fin(Date hora_fin) {
-		this.hora_fin = hora_fin;
-	}
-
 
 	public List<Citas> getCitas() {
 		return Citas;
@@ -98,8 +87,29 @@ public class Horario {
 	}
 	
 	
+	public Date getFecha() {
+		return fecha;
+	}
 
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public void setHora_inicio(Time hora_inicio) {
+		this.hora_inicio = hora_inicio;
+	}
+
+	public void setHora_fin(Time hora_fin) {
+		this.hora_fin = hora_fin;
+	}
 	
+	public Time getHora_inicio() {
+		return hora_inicio;
+	}
+
+	public Time getHora_fin() {
+		return hora_fin;
+	}
 	
 	
 }
