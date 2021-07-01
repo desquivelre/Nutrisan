@@ -14,7 +14,6 @@ public class CurriculumId implements Serializable{
     private Integer gradoAcademico;
     private Integer casaDeEstudios;
 
-  
 
 	@Override
     public int hashCode() {

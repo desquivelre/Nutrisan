@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import pe.edu.upc.pandemia.entities.Curriculum;
 import pe.edu.upc.pandemia.entities.Horario;
 import pe.edu.upc.pandemia.entities.Nutricionista;
+import pe.edu.upc.pandemia.service.crud.CurriculumService;
 import pe.edu.upc.pandemia.service.crud.HorarioService;
 import pe.edu.upc.pandemia.service.crud.NutricionistaService;
 
@@ -26,6 +28,9 @@ public class NutricionistaController {
 	
 	@Autowired
 	private HorarioService horarioService;
+	
+	@Autowired
+	private CurriculumService curriculumService;
 
 	@GetMapping("{id}")
     public String response(Model model , @PathVariable("id") Integer id ) {
@@ -132,6 +137,36 @@ public class NutricionistaController {
 		return "redirect:/nutricionist/"+nutricionista.getDni();
 	}     
 	
+	@GetMapping("{dni}/curriculum")	
+	public String setCurriculum(Model model, @PathVariable("dni") Integer dni) {
+		try {
+			Curriculum curriculum = new Curriculum();
+			Optional<Nutricionista> nutricionista= nutricionistaService.findById(dni);
+			curriculum.setNutricionista(nutricionista.get());
+			model.addAttribute("curriculumNew", curriculum);
+			
+			model.addAttribute("nutricionista",nutricionista.get());
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		return "nutricionista/setCurriculum.html";	// url
+	}
 	
+	@PostMapping("curriculum/savenew/{dni}")	// GET: /schedule/savenew
+	public String saveNew(Model model,@ModelAttribute("curriculumNew") Curriculum curriculum,@PathVariable("dni") Integer dni) {
+		try {
+			Optional<Nutricionista> nutricionista= nutricionistaService.findById(dni);
+				
+			Curriculum curriculumReturn = curriculumService.create(curriculum);
+			model.addAttribute("curriculum", curriculum);
+			model.addAttribute("nutricionista",nutricionista);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println(e.getMessage());
+		}
+		
+		return "redirect:/nutricionist";
+	}	
 	
 }

@@ -11,13 +11,14 @@
       gtag('config', 'G-GNJJMF8KL8');
     </script>
 <meta charset="utf-8">
-<title>My account</title>
+<title>Set new schedule</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
 	crossorigin="anonymous">
-<link rel="stylesheet" th:href="@{/css/pa_css.css}">
+<link rel="stylesheet" th:href="@{/css/styleFlujo5.css}">
+<link rel="stylesheet" th:href="@{/js/jquery-ui.min.css}">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 <script
@@ -27,7 +28,6 @@
 </head>
 
 <body>
-
 
 	<input type="checkbox" id="check">
 
@@ -39,7 +39,7 @@
 
 			<img th:src="@{/img/logo.png}" alt="" width="60" height="60"> <a
 				class="navbar-brand d-flex align-items-center"
-				style="margin-left: 20px;" href="#"> Doctor </a>
+				style="margin-left: 20px;" href="#"> Nutrisan </a>
 
 
 			<button class="navbar-toggler" type="button"
@@ -85,7 +85,7 @@
 	<div class="sidebar">
 		<center>
 			<img th:src="@{/img/prota.jpg}" class="profile_image" alt="">
-			<h4 th:text="${nutricionista.username}"></h4>
+			<h4 th:text="${nutricionista.nombre}"></h4>
 		</center>
 
 
@@ -95,71 +95,56 @@
 		<a th:href="@{/login}"><i class="fas fa-sliders-h"></i><span>Log out</span></a>
 	</div>
 
-
-	<div class="content">
-		<div class="pa_1">
-			<h2>My account</h2>
-		</div>
-		<div class="pa_arriba">
-			<div class="pa_1_imagen">
-
-				<img alt="" th:src="@{/img/prota.jpg}">
-
+	<div class=content>
+		<div class="Title">
+			<div class="Title-icon">
+				<i class="fas fa-plus-circle fa-2x"></i>
 			</div>
-			<div class="pa_1_datos">
-
-				<div class="pa_datos"
-					th:text="'Nutritionist DNI: '+${nutricionista.dni}"></div>
-				<div class="pa_datos"
-					th:text="'Nutritionist Name: '+${nutricionista.nombre}+' ' + ${nutricionista.apellido}">
-				</div>
-				<div class="pa_datos"
-					th:text="'Email: '+${nutricionista.email}">
-				</div>
-			
-				
-				<div class="pa_datos"
-					th:text="'Nutritionist Points: '+${nutricionista.puntuacion}"></div>
-				<br>
-				
-				<div class="botones">
-					<a th:href="@{'/nutricionist/'+${nutricionista.dni} + '/actualizar'}">
-						<button type="button" class="btn btn-success">Update my
-							data</button>
-					</a> <a th:href="@{'/nutricionist/'+${nutricionista.dni} + '/curriculum'}">
-						<button type="button" class="btn btn-primary">Set curriculum</button>
-					</a>
-
-				</div>
-				
+			<div class="Title-text">
+				<h3>Set curriculum</h3>
 			</div>
 		</div>
+		<div class="card2">
+			<form th:action="@{/nutricionist/curriculum/savenew/}+${nutricionista.dni}"
+				th:object="${curriculumNew}" method="post">
+				<div class="card-body">
+					<div class="col-md-8">
+						<div class="form-group">
+							<label for="especialidad" class="form-label">Specialty</label> <input
+								type="text" class="form-control" name="example-text-input"
+								th:field="*{especialidad}"> <input
+								type="text" class="form-control" th:field="*{nutricionista}"
+								hidden="true">
+						</div>
+						<div class="form-group">
+							<label for="gradoAcademico" class="form-label">Academic grade</label> <input
+								type="text" class="form-control" name="example-text-input"
+								th:field="*{gradoAcademico}" >
 
-		<div class="pa_abajo">
-			<div class="pa_opcion">
-				<div class="pa_opcion_icono">
-					<i class="fas fa-history fa-4x"></i>
-				</div>
-				<div class="pa_boton">
-					<button type="button" class="btn btn-success">Appointment
-						history</button>
-				</div>
-			</div>
+						</div>
+						<div class="form-group">
+							<label for="casaDeEstudios" class="form-label">House of studies</label> <input
+								type="text" class="form-control" name="example-text-input"
+								th:field="*{casaDeEstudios}">
+						</div>
+						<div class="card-footer text-right">
+							<a th:href="@{'/nutricionist/'+${dni}}"
+								class="btn btn-danger">Cancel</a>
 
+							<button type="submit" class="btn btn-success">Set</button>
+						</div>
 
-
-			<div class="pa_opcion">
-				<div class="pa_opcion_icono">
-					<i class="fas fa-user-md fa-4x"></i>
+					</div>
 				</div>
-				<div class="pa_boton">
-					<button type="button" class="btn btn-success">Choose a
-						schedule</button>
-				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 
-</body>
 
+	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/jquery-ui.min.js}"></script>
+	<script th:src="@{/js/code.js}"></script>
+</body>
 </html>
