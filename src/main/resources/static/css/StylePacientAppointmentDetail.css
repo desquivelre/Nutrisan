@@ -23,6 +23,11 @@
   border-style: solid; 
 }
 
+.Titleandbutton{
+	display: flex;
+	flex-direction: row;
+	
+}
 
 .Title{
 	color: #07A46F;
@@ -30,7 +35,7 @@
 	padding-top: 10px;
 	font-weight: bold;
 	font-size: 25px;
-	
+	width: 80%;
 }
 
 .Title-info{
@@ -46,10 +51,18 @@
 	
 
 }
+.linktext{
+	font-weight: 500;
+	font-size: 15px;
+	margin-left: 400px;
+	color:#07A46F;
 
+
+
+}
 .Title-info-link{
 	
-	margin-left: 550px;
+	
 	font-weight: normal;
 	font-size: 15px;
 	
