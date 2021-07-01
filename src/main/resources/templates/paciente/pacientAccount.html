@@ -91,7 +91,7 @@
 			</center>
 
 
-			<a th:href="@{'/inicio' + '/myaccount/'+${paciente.dni}}"></i><span>My account</span></a>
+			<a th:href="@{'/inicio' + '/myaccount/'+${paciente.dni}}"><i class="fas fa-table"></i><span>My account</span></a>
 			<a th:href="@{'/inicio/' + ${paciente.dni} + '/list'}"><i class="fas fa-cogs"></i><span>Book an appointment</span></a>
 			<a th:href="@{'/inicio' + '/myappointments/' + ${paciente.dni}}"><i class="fas fa-table"></i><span>My appointments</span></a>
 			<a th:href="@{ '/problema/' + ${paciente.dni}}"><i class="fas fa-th"></i><span>Report</span></a>
@@ -100,8 +100,9 @@
 		
 
 		<div class="content">
+	
 		
-			<div class = "titulo">
+			<div class = "titulo" style="margin-top: 75px;">
 				<h2>My account</h2>
 				<br>
 			</div>
@@ -125,9 +126,7 @@
 						<a th:href="@{'/inicio/' + ${paciente.dni} + '/actualizar'}">
 							<button type="button" class="btn btn-success">Update my data</button>
 						</a>
-						<a th:href="@{${paciente.dni} + '/actualizar'}">
-							<button type="button" class="btn btn-danger">Delete my account</button>
-						</a>
+						
 					</div>
 				
 			</div>
